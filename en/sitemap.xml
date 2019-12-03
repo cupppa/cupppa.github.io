@@ -1,10 +1,149 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <?xml-stylesheet type="text/xsl" href="https://cupppa.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
     <loc>https://cupppa.github.io/about/</loc>
     <lastmod>2018-04-13T23:52:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/chrome/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/chrome/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/docker/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/docker/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/mac/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/mac/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/mac-os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/mac-os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/post/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/post/running-guis-with-docker-on-mac-os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/cms/</loc>
+    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/cms/</loc>
+    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/development/</loc>
+    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/categories/golang/</loc>
+    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cupppa.github.io/tags/golang/</loc>
+    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,86 +156,17 @@
   </url>
   
   <url>
-    <loc>https://cupppa.github.io/post/osx_ruby_upgrade/</loc>
+    <loc>https://cupppa.github.io/tags/ruby/</loc>
     <lastmod>2018-04-14T10:32:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cupppa.github.io/</loc>
-    <lastmod>2018-04-13T23:52:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/tags/cms/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/categories/cms/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/categories/development/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/tags/golang/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/categories/golang/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/tags/mac/</loc>
+    <loc>https://cupppa.github.io/post/osx_ruby_upgrade/</loc>
     <lastmod>2018-04-14T10:32:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/post/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/tags/ruby/</loc>
-    <lastmod>2018-04-14T10:32:40+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cupppa.github.io/tags/</loc>
-    <lastmod>2018-04-14T16:32:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

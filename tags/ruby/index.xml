@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ruby on A Cup of Tea</title>
+    <title>ruby on CUPPPA</title>
     <link>https://cupppa.github.io/tags/ruby/</link>
-    <description>Recent content in Ruby on A Cup of Tea</description>
+    <description>Recent content in ruby on CUPPPA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 14 Apr 2018 10:32:40 +0800</lastBuildDate>
@@ -26,9 +26,7 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rvm requirements
 rvm install 2.3.2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

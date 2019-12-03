@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cms on A Cup of Tea</title>
+    <title>cms on CUPPPA</title>
     <link>https://cupppa.github.io/categories/cms/</link>
-    <description>Recent content in Cms on A Cup of Tea</description>
+    <description>Recent content in cms on CUPPPA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 14 Apr 2018 16:32:10 +0800</lastBuildDate>
@@ -17,9 +17,7 @@
       <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
       
       <guid>https://cupppa.github.io/post/golang-cms-resources/</guid>
-      <description>&lt;p&gt;List golang resources for cms build.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;List golang resources for cms build.&lt;/p&gt;</description>
     </item>
     
   </channel>
