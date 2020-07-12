@@ -1,87 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on CUPPPA</title>
-    <link>https://cupppa.github.io/tags/</link>
-    <description>Recent content in Tags on CUPPPA</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 24 Jul 2019 11:45:30 +0800</lastBuildDate>
-    
-	<atom:link href="https://cupppa.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>chrome</title>
-      <link>https://cupppa.github.io/tags/chrome/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/chrome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://cupppa.github.io/tags/docker/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac</title>
-      <link>https://cupppa.github.io/tags/mac/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mac OS X</title>
-      <link>https://cupppa.github.io/tags/mac-os-x/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/mac-os-x/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OS X</title>
-      <link>https://cupppa.github.io/tags/os-x/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/os-x/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cms</title>
-      <link>https://cupppa.github.io/tags/cms/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/cms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://cupppa.github.io/tags/golang/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ruby</title>
-      <link>https://cupppa.github.io/tags/ruby/</link>
-      <pubDate>Sat, 14 Apr 2018 10:32:40 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/tags/ruby/</guid>
-      <description></description>
-    </item>
+    <title>Tags | CUPPPA</title>
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 23:07:31 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Tags</title>
+      <link>/tags/</link>
+    </image>
     
   </channel>
 </rss>

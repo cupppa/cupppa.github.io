@@ -1,64 +1,425 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on CUPPPA</title>
-    <link>https://cupppa.github.io/post/</link>
-    <description>Recent content in Posts on CUPPPA</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 24 Jul 2019 11:45:30 +0800</lastBuildDate>
+    <title>CUPPPA</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>CUPPPA</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 23:07:31 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>CUPPPA</title>
+      <link>/post/</link>
+    </image>
     
-	<atom:link href="https://cupppa.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog with Hugo and Academic</title>
+      <link>/post/blog-with-hugo-and-academic/</link>
+      <pubDate>Wed, 01 Jul 2020 23:07:31 +0800</pubDate>
+      <guid>/post/blog-with-hugo-and-academic/</guid>
+      <description>&lt;h2 id=&#34;install-hugo&#34;&gt;Install Hugo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;scoop install hugo
+# or
+choco install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;snap install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;create-new-site&#34;&gt;Create New Site&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;hugo new site blogs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;add-submodule&#34;&gt;Add Submodule&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cd blogs
+git submodule add https://github.com/gcushen/hugo-academic.git .\themes\academic
+git submodule init
+git submodule update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;config-academic&#34;&gt;Config Academic&lt;/h2&gt;
+&lt;h4 id=&#34;config_defaultconfigtoml&#34;&gt;config/_default/config.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cp -p config.toml config.backup.toml
+cp /dev/null config.toml
+cp -r themes/academic/exampleSite/config ./
+sed -i &#39;s/title = &amp;quot;Academic&amp;quot;/title = &amp;quot;CUPPPA&amp;quot;/&#39; config/_default/config.toml
+sed -i &#39;s/hasCJKLanguage = false/hasCJKLanguage = true/&#39; config/_default/config.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;config_defaultparamstoml&#34;&gt;config/_default/params.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &#39;s/theme = &amp;quot;minimal&amp;quot;/theme = &amp;quot;dark&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/email = &amp;quot;test@example.org&amp;quot;/email = &amp;quot;cupppa@gmail.com&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/^date_format = &amp;quot;Jan 2, 2006&amp;quot;/date_format = &amp;quot;2006-01-02&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/^time_format = &amp;quot;3:04 PM&amp;quot;/time_format = &amp;quot;15:04&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/sharing = true/sharing = false/&#39; config/_default/params.toml
+sed -i &#39;s/netlify_cms = true/netlify_cms = false/&#39; config/_default/params.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and change or comment lines start with &lt;code&gt;phone&lt;/code&gt;, &lt;code&gt;address&lt;/code&gt;, &lt;code&gt;coordinates&lt;/code&gt;, &lt;code&gt;directions&lt;/code&gt;, &lt;code&gt;office_time&lt;/code&gt;, &lt;code&gt;appointment_url&lt;/code&gt;, &lt;code&gt;contact_links&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;config_defaultmenustoml&#34;&gt;config/_default/menus.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;config/_default/menus.toml &amp;lt;&amp;lt;EOF
+[[main]]
+  name = &amp;quot;Posts&amp;quot;
+  url = &amp;quot;post&amp;quot;
+  weight = 10
+
+[[main]]
+  name = &amp;quot;Tags&amp;quot;
+  url = &amp;quot;tags&amp;quot;
+  weight = 20
+
+[[main]]
+  name = &amp;quot;Categories&amp;quot;
+  url = &amp;quot;categories&amp;quot;
+  weight = 30
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;homepage&#34;&gt;homepage&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;mkdir content/home/
+cp themes/academic/exampleSite/content/home/index.md content/home/
+cp themes/academic/exampleSite/content/home/posts.md content/home/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;now your can view the site with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo server --watch --verbose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-homepage&#34;&gt;Custom Homepage&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p layouts/partials/widgets
+cp themes/academic/layouts/partials/widgets/pages.html layouts/partials/widgets/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;refer to &lt;code&gt;theme/academic/layouts/partials/widgets/tag_cloud.html&lt;/code&gt;, replace &amp;ldquo;Recent Post&amp;rdquo; partial (&lt;code&gt;&amp;lt;div class=&amp;quot;col-12 col-lg-4 section-headeing&amp;quot;&amp;gt;...&amp;lt;/div&amp;gt;&lt;/code&gt;) with below content and move it from left to right side on homepage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;lt;div class=&amp;quot;col-12 col-lg-4 section-heading&amp;quot;&amp;gt;
+
+    {{ $fontSmall := $st.Params.design.font_size_min | default 0.8 }}
+    {{ $fontBig := $st.Params.design.font_size_max | default 2.5 }}
+    {{ $fontDelta := sub $fontBig $fontSmall }}
+
+    {{ range $taxonomy, $values := site.Taxonomies }}
+
+      {{ $tags := (index site.Taxonomies $taxonomy).ByCount }}
+      {{ $count := len $tags }}
+
+      {{/* Warning: Hugo&#39;s `Reverse` function appears to operate in-place, hence the order of performing $max/$min matters. */}}
+      {{ $max := add (len (index $tags 0).Pages) 1 }}
+      {{ $min := len (index ($tags).Reverse 0).Pages }}
+      {{ $delta := sub $max $min }}
+
+    &amp;lt;div class=&amp;quot;row card-simple&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;col-12 section-heading&amp;quot;&amp;gt;
+        &amp;lt;h1&amp;gt;{{ with $taxonomy }}{{ . | markdownify | emojify | title }}{{ end }}&amp;lt;/h1&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;col-12&amp;quot;&amp;gt;
+        {{ if ne $count 0 }}
+          &amp;lt;div class=&amp;quot;tag-cloud&amp;quot;&amp;gt;
+            {{ range $name, $term := (sort $tags &amp;quot;.Page.Title&amp;quot; &amp;quot;asc&amp;quot;) }}
+              {{ $tagCount := len $term.Pages }}
+              {{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+              {{ $fontSize := add $fontSmall (mul (sub $fontBig $fontSmall) $weight) }}
+              &amp;lt;a href=&amp;quot;{{ .Page.RelPermalink }}&amp;quot; style=&amp;quot;font-size:{{ $fontSize }}rem&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;badge badge-light&amp;quot;&amp;gt;{{ $tagCount }}&amp;lt;/span&amp;gt; {{ .Page.Title }}&amp;lt;/a&amp;gt;
+            {{ end }}
+          &amp;lt;/div&amp;gt;
+        {{ end }}
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    {{ end }}
+
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;localize-cssjsfont&#34;&gt;Localize css/js/font&lt;/h2&gt;
+&lt;p&gt;Edit params.toml to change font to &amp;ldquo;native&amp;rdquo;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &#39;s/font = &amp;quot;&amp;quot;/font = &amp;quot;native&amp;quot;/&#39; params.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install 
+&lt;a href=&#34;https://github.com/sourcethemes/academic-admin&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic Admin&lt;/a&gt; tool and import JS and CSS assets to static/&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip3 install academic
+academic import --assets
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add Font Awesome font assets to static/&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.12.0/fontawesome-free-5.12.0-web.zip -o ~/Downloads/
+unzip ~/Downloads/fontawesome-free-5.12.0-web.zip
+rsync -av fontawesome-free-5.12.0-web/webfonts static/css/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-axonomy-term-list-page&#34;&gt;Custom Axonomy term list page&lt;/h2&gt;
+&lt;p&gt;Refer to &lt;code&gt;themes/academic/layouts/partials/widgets/{tag_cloud,pages}.html&lt;/code&gt;, add template &lt;code&gt;layouts/_default/terms.html&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;layouts/_default/terms.html &amp;lt;&amp;lt;EOF&amp;gt;
+{{- define &amp;quot;main&amp;quot; -}}
+
+{{ partial &amp;quot;page_header.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;universal-wrapper&amp;quot;&amp;gt;
+  {{ with .Content }}
+  &amp;lt;div class=&amp;quot;article-style&amp;quot;&amp;gt;{{ . }}&amp;lt;/div&amp;gt;
+  {{ end }}
+
+  {{ if eq .Type &amp;quot;tags&amp;quot; }}
+
+    {{ $st := . }}
+    {{ $tags := .Data.Pages }}
+    {{ $count := len $tags }}
+
+    {{ $fontSmall := $st.Params.design.font_size_min | default 0.8 }}
+    {{ $fontBig := $st.Params.design.font_size_max | default 2.5 }}
+
+    &amp;lt;div class=&amp;quot;card-simple&amp;quot;&amp;gt;
+
+      {{ if ne $count 0 }}
     
+        {{ $fontDelta := sub $fontBig $fontSmall }}
+        {{/* Warning: Hugo&#39;s `Reverse` function appears to operate in-place, hence the order of performing $max/$min matters. */}}
+        {{ $max := add (len (index $tags 0).Pages) 1 }}
+        {{ $min := len (index ($tags).Reverse 0).Pages }}
+        {{ $delta := sub $max $min }}
+        {{ $fontStep := div $fontDelta $delta }}
+    
+        &amp;lt;div class=&amp;quot;tag-cloud&amp;quot;&amp;gt;
+          {{ range $name, $term := (sort $tags &amp;quot;.Page.Title&amp;quot; &amp;quot;asc&amp;quot;) }}
+            {{ $tagCount := len $term.Pages }}
+            {{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+            {{ $fontSize := add $fontSmall (mul (sub $fontBig $fontSmall) $weight) }}
+            &amp;lt;a href=&amp;quot;{{ .Page.RelPermalink }}&amp;quot; style=&amp;quot;font-size:{{ $fontSize }}rem&amp;quot;&amp;gt;{{ .Page.Title }}&amp;lt;/a&amp;gt;
+          {{ end }}
+        &amp;lt;/div&amp;gt;
+      {{ end }}
+    
+    &amp;lt;/div&amp;gt;
+
+  {{ else if eq .Type &amp;quot;categories&amp;quot; }}
+
+    {{ $view := .Params.design.view }}
+
+    {{ range .Data.Pages }}
+      {{ $link := .RelPermalink }}
+      {{ $target := &amp;quot;&amp;quot; }}
+      {{ with .Params.external_link }}
+        {{ $link = . }}
+        {{ $target = &amp;quot;target=\&amp;quot;_blank\&amp;quot; rel=\&amp;quot;noopener\&amp;quot;&amp;quot; }}
+      {{ end }}
+
+      {{ $st := . }}
+      {{ $count := len $st.Pages }}
+
+      {{ $view = $st.Params.design.view | default $view }}
+
+      {{ $items_count := $st.Params.content.count }}
+      {{ if eq $items_count 0 }}
+        {{ $items_count = 65535 }}
+      {{ else }}
+        {{ $items_count = $items_count | default 5 }}
+      {{ end }}
+
+      &amp;lt;div class=&amp;quot;card-simple&amp;quot;&amp;gt;
+
+        &amp;lt;div class=&amp;quot;row&amp;quot;&amp;gt;
+          &amp;lt;div class=&amp;quot;col-12 col-lg-4&amp;quot;&amp;gt;
+            &amp;lt;h2&amp;gt;
+              &amp;lt;a href=&amp;quot;{{$link}}&amp;quot; {{ $target | safeHTMLAttr }}&amp;gt;
+                &amp;lt;i class=&amp;quot;fas fa-folder mr-1&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+                {{ .Title }}
+                [&amp;lt;span class=&amp;quot;&amp;quot;&amp;gt;{{ if ge $count $items_count }}{{ $items_count }}/{{ end }}{{ $count }}&amp;lt;/span&amp;gt;]&amp;lt;/a&amp;gt;
+            &amp;lt;/h2&amp;gt;
+            {{ with $st.Content }}{{ . }}{{ end }}
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;quot;col-12 col-lg-8&amp;quot;&amp;gt;
+
+            {{ range first $items_count .Pages }}
+              {{ if eq $view 1 }}
+                {{ partial &amp;quot;li_list&amp;quot; . }}
+              {{ else if eq $view 3 }}
+                {{ partial &amp;quot;li_card&amp;quot; . }}
+              {{ else }}
+                {{ partial &amp;quot;li_compact&amp;quot; . }}
+              {{ end }}
+            {{end}}
+
+          &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+      &amp;lt;/div&amp;gt;
+      
+    {{ end }}
+
+  {{ end }}
+
+&amp;lt;/div&amp;gt;
+
+{{- end -}}
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add &lt;code&gt;content/{tags,categories}/_index.md&lt;/code&gt; to appoint list style to &lt;code&gt;card&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;content/categories/_index.md &amp;lt;&amp;lt;EOF
++++
+title = &amp;quot;Categories&amp;quot;
+
+[design]
+  # 1: list
+  # 2: compact
+  # 3: card
+  view = 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-axonomy-term-page&#34;&gt;Custom axonomy term page&lt;/h2&gt;
+&lt;p&gt;Refer to &lt;code&gt;themes/academic/_default/list.html&lt;/code&gt; and &lt;code&gt;themes/academic/_default/partials/widgets/pages.html&lt;/code&gt;, add template &lt;code&gt;layouts/_default/term.html&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;layouts/_default/term.html &amp;lt;&amp;lt;EOF
+{{- define &amp;quot;main&amp;quot; -}}
+
+{{ partial &amp;quot;page_header.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;universal-wrapper&amp;quot;&amp;gt;
+
+  {{ with .Content }}
+  &amp;lt;div class=&amp;quot;article-style&amp;quot;&amp;gt;{{ . }}&amp;lt;/div&amp;gt;
+  {{ end }}
+
+  {{ $view := .Parent.Params.design.view }}
+
+  {{ $paginator := .Paginate .Data.Pages }}
+  {{ range $paginator.Pages }}
+    {{ if eq $view 1 }}
+      {{ partial &amp;quot;li_list&amp;quot; . }}
+    {{ else if eq $view 3 }}
+      {{ partial &amp;quot;li_card&amp;quot; . }}
+    {{ else }}
+      {{ partial &amp;quot;li_compact&amp;quot; . }}
+    {{ end }}
+  {{ end }}
+
+  {{ partial &amp;quot;pagination&amp;quot; . }}
+
+&amp;lt;/div&amp;gt;
+
+{{- end -}}
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tcpdump Usage</title>
+      <link>/post/tcpdump-usage/</link>
+      <pubDate>Wed, 01 Jul 2020 11:52:38 +0800</pubDate>
+      <guid>/post/tcpdump-usage/</guid>
+      <description>&lt;h2 id=&#34;tcpdump-usage&#34;&gt;Tcpdump Usage&lt;/h2&gt;
+&lt;h4 id=&#34;查找reset包&#34;&gt;查找reset包&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;tcpdump -r xxxx.pcap &#39;tcp[tcpflags] &amp;amp; tcp-rst != 0&#39;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Make Qrcode of Home Wifi</title>
+      <link>/post/make-wifi-qrcode/</link>
+      <pubDate>Mon, 29 Jun 2020 15:55:22 +0800</pubDate>
+      <guid>/post/make-wifi-qrcode/</guid>
+      <description>&lt;h3 id=&#34;使用python代码制作wifi二维码&#34;&gt;使用python代码制作wifi二维码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ pip install wifi-qrcode-generator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ wifi-qrcode-generator
+SSID: SOMESSID
+Is the network hidden (default is false): y
+Authentication types: WPA/WPA2, WEP, nopass
+Authentication type (default is WPA/WPA2):
+Password: 
+The qr code has been stored in the current directory.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ ls -l SOMESSID.png
+-rw-r--r--  1 cupppa  staff  837  6 29 16:11 SOMESSID.png
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>Running GUI&#39;s with Docker on Mac OS X</title>
-      <link>https://cupppa.github.io/post/running-guis-with-docker-on-mac-os-x/</link>
+      <link>/post/running-guis-with-docker-on-mac-os-x/</link>
       <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/post/running-guis-with-docker-on-mac-os-x/</guid>
+      <guid>/post/running-guis-with-docker-on-mac-os-x/</guid>
       <description>&lt;p&gt;[from] &lt;a href=&#34;https://cntnr.io/running-guis-with-docker-on-mac-os-x-a14df6a76efc&#34;&gt;Running GUI&#39;s with Docker on Mac OS X&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;
 We are very familiar with running CLI processes in Docker containers with no Graphical UI at all. But did you know that you can just as well run applications with a graphical user interfaces, like Chrome, Firefox, Tor Browser, Gimp, etc... with Docker... on OS X!
 &lt;/p&gt;
 &lt;p&gt;
 在Docker容器中运行无图形用户界面的命令行进程我们已很熟练。但你是否知道也可以在OSX系统中使用Docker运行有图形用户界面的应用程序，如Chrome, Firefox, Tor Browser, Gimp等等。
 &lt;/p&gt;
-
 &lt;p&gt;
 This article serves as transcript to &lt;a href=&#34;https://www.youtube.com/watch?v=PKyj8sbZNYw&amp;source=post_page&#34;&gt;our hands-on demo&lt;/a&gt; and as a quick refresher on how to run these kind of applications on a Mac in 5 minutes or less. For a more in depth look on how to build and run Linux GUI apps on Mac I highly recommend &lt;a href=&#34;http://blog.alexellis.io/linux-deskto    p-on-mac/?source=post_page&#34;&gt;the full from scratch rundown&lt;/a&gt;, by fellow Docker Captain Alex Ellis.
 &lt;/p&gt;
 &lt;p&gt;
-本文是&lt;a href=&#34;https://www.youtube.com/watch?v=PKyj8sbZNYw&amp;source=post_page&#34;&gt;动手实践演示&lt;/a&gt;的文字记录，快速复习了如何在5分钟或更短时间内在Mac上运行这类应用程序。要想更深入了解如何在Mac上构建和运行Linux GUI应用程序，我强列推荐Docker领队Alex Ellis的&lt;a href=&#34;http://blog.alexellis.io/linux-desktop-on-mac/?source=post_page&#34;&gt;从头开始的完整清单&lt;/a&gt;。
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Golang CMS resources</title>
-      <link>https://cupppa.github.io/post/golang-cms-resources/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/post/golang-cms-resources/</guid>
-      <description>&lt;p&gt;List golang resources for cms build.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Upgrade Ruby for MAC OSX</title>
-      <link>https://cupppa.github.io/post/osx_ruby_upgrade/</link>
-      <pubDate>Sat, 14 Apr 2018 10:32:40 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/post/osx_ruby_upgrade/</guid>
-      <description>&lt;h2 id=&#34;install-rvm&#34;&gt;Install rvm&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+本文是&lt;a href=&#34;https://www.youtube.com/watch?v=PKyj8sbZNYw&amp;source=post_page&#34;&gt;动手实践演示&lt;/a&gt;的文字记录，快速复习了如何在5分钟或更短时间内在Mac上运行这类应用程序。要想更深入了解如何在Mac上构建和运行Linux GUI应用程序，我强列推荐Docker领队Alex Ellis的&lt;a href=&#34;http://blog.alexellis.io/linux-desktop-on-mac/?source=post_page&#34;&gt;从零开始的要点&lt;/a&gt;。
+&lt;/p&gt;
+&lt;p&gt;
+The first thing we need is socat, a unix tool that creates two bidirectional streams between two endpoints. Our end goal is to create a connection between the docker container that runs a graphical application and the X window system on our OS X host operating system. So lets begin by creating a bridge between a network socket with a TCP listener on port 6000 (the default port of the X window system) and the X window server on my OS X host, that we’ll install and run in the next step on a unix socket.
+&lt;/p&gt;
+&lt;p&gt;
+首先我们需要的是socat，这是一个unix工具，能在两个端点之间创建两个双向流。我们的最终目标是在运行图形应用程序的Docker容器和OS X主机操作系统上的X窗口系统之间建立连接。首先让我们在侦听TCP端口6000（X窗口系统的默认端口）的网络套接字和OS X主机上的X窗口服务之间创建一个网桥，下一步我们将在一个UNIX套接字上安装并运行X窗口服务。
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/1400/1*5-82LVnDtodIHAScrre6nQ.png&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; brew install socat
+&amp;gt; socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\&amp;quot;$DISPLAY\&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+Now we’ll tackle the X window system. To run this on Mac OS X we will need Xquartz which, according to the website, is a project that offers the &lt;a href=&#34;https://www.xquartz.org/?source=post_page&#34;&gt;X Window System on the OS X operating system&lt;/a&gt;. We can either install by downloading a dmg from the website. But since we are good developers we’ll do it from the command line through homebrew. (and yes, I do see the irony in saying that when advertising this post as being all about GUI’s…)
+&lt;/p&gt;
+&lt;p&gt;
+现在我们着手X窗口系统。要在Mac OS X上运行这个程序，我们需要Xquartz，该网站上介绍，这个项目提供了&lt;a href=&#34;https://www.xquartz.org/?source=post_page&#34;&gt;OS X操作系统的X窗口系统&lt;/a&gt;。我们可以通过从网站下载DMG来安装。但由于我们是优秀的开发者，我们将用命令行通过homebrew来完成这项工作。（是的，确实讽剌的是，我这篇文章宣传的是关于图形用户界面的...）
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; brew install xquartz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+One important thing to note is that after you have installed this is to log out and log back into OS X to get everything to work properly. Once that is done we can start Xquartz.
+&lt;/p&gt;
+&lt;p&gt;
+需要注意的一件重要的事情是，在安装完成之后，您需要注销并重新登录到OS X，以使一切正常工作。完成后，我们可以启动Xquartz。
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; open -a Xquartz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+A white terminal window will pop up. Now open up the preferences from the top menu and go to the last tab ‘security’. There we need to make sure the “allow connections from network clients” is checked “on”.
+&lt;/p&gt;
+&lt;p&gt;
+会弹出一个白色终端窗口。现在找开顶部菜单中的首选项并转到最后一个选项卡“安全性”。需要确保“允许来自网络客户端的连接”选项为“开启”状态。
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/1400/1*zMO-bPar1Z1AUUH-O2WBfw.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+And now we get down to business… running the actual graphical application within a Docker container!
+&lt;/p&gt;
+&lt;p&gt;
+现在我们谈正事......在Docker容器中运行实际的图形应用程序！
+&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/1400/1*t9RTn9w0PwQAMtK1yrq1GQ.png&#34; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;p style=&#34;color:#888;font-size:12px;&#34;&gt;docker container connecting to the X window system on the host OS X through socat&lt;/p&gt;&lt;/center&gt;
+&lt;p&gt;
+First we need the ip of the network interface of our host OS. Then we pass that on as the `DISPLAY` environment variable in the Docker container that runs the graphical interface.
+&lt;/p&gt;
+&lt;p&gt;
+首先，我们需要主机操作系统的网络接口的IP。然后，我们将其做为&#34;DISPLAY&#34;环境变量的值传递给运行图形界面的Docker容器。
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; ifconfig en0
+en0:
+...
+inet 192.168.0.235 netmask 0xffffff00 broadcast 192.168.199.255
+...
 
-&lt;h2 id=&#34;install-ruby&#34;&gt;Install ruby&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rvm requirements
-rvm install 2.3.2
-&lt;/code&gt;&lt;/pre&gt;</description>
+&amp;gt; docker run -e DISPLAY=192.168.0.235:0 gns3/xeyes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/1400/1*fBaWucXOW_r9h2sZlfJPNQ.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+All that trouble just to have 2 rolling eyes on your screen? Of course there is way more to explore. What about running &lt;a href=&#34;https://hub.docker.com/r/jess/chrome/?source=post_page&#34;&gt;chrome in a container&lt;/a&gt;? Apart from some extra permissions and a couple of warnings… easy as pie!
+&lt;/p&gt;
+&lt;p&gt;
+这么麻烦只是在您的屏幕上有了两只滚动的眼睛？当然还有更多的方案可以探索。在&lt;a href=&#34;https://hub.docker.com/r/jess/chrome/?source=post_page&#34;&gt;容器中运行Chrome&lt;/a&gt;怎么样？除了一些额外的权限和一些警告之外......很简单！
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; docker run -e DISPLAY=192.168.0.235:0 --privileged jess/chrome
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://miro.medium.com/max/1400/1*R4PKVQZfCcLoGkWXJrVoRA.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+The possibilities are endless! So in just a couple of commands we’ve shown that docker shouldn’t be just used for the typical non-graphical applications. It can just be used as well for &lt;a href=&#34;https://hub.docker.com/u/jess/?source=post_page&#34;&gt;graphical apps&lt;/a&gt;. What use cases do you see valuable with this setup?
+&lt;/p&gt;
+&lt;p&gt;
+可能性是无限的！因此，通过几个命令我们已经展示了Docker不应该仅仅用于典型的非图形应用程序。它也可以用于&lt;a href=&#34;https://hub.docker.com/u/jess/?source=post_page&#34;&gt;图形应用程序&lt;/a&gt;。对于这种机制您还能设想到什么有价值的用例？
+&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Check out our hands-on demo in the video below!&lt;/i&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FPKyj8sbZNYw%3Ffeature%3Doembed&amp;url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPKyj8sbZNYw&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FPKyj8sbZNYw%2Fhqdefault.jpg&amp;key=a19fcc184b9711e1b4764040d3dc5c07&amp;type=text%2Fhtml&amp;schema=youtube&#34; frameborder=&#34;0&#34; height=&#34;440&#34; width=&#34;720&#34; title=&#34;Running GUI&#39;s with Docker on OS X&#34; class=&#34;fz p q fy ac&#34;&gt;&lt;/iframe&gt;
+&lt;center&gt;&lt;p style=&#34;color:#888;font-size:12px;&#34;&gt;Running graphical applications on mac OS X live demo&lt;/p&gt;&lt;/center&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog | CUPPPA</title>
+    <link>/category/blog/</link>
+      <atom:link href="/category/blog/index.xml" rel="self" type="application/rss+xml" />
+    <description>blog</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 23:07:31 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>blog</title>
+      <link>/category/blog/</link>
+    </image>
+    
+    <item>
+      <title>Blog with Hugo and Academic</title>
+      <link>/post/blog-with-hugo-and-academic/</link>
+      <pubDate>Wed, 01 Jul 2020 23:07:31 +0800</pubDate>
+      <guid>/post/blog-with-hugo-and-academic/</guid>
+      <description>&lt;h2 id=&#34;install-hugo&#34;&gt;Install Hugo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;scoop install hugo
+# or
+choco install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;snap install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;create-new-site&#34;&gt;Create New Site&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;hugo new site blogs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;add-submodule&#34;&gt;Add Submodule&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cd blogs
+git submodule add https://github.com/gcushen/hugo-academic.git .\themes\academic
+git submodule init
+git submodule update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;config-academic&#34;&gt;Config Academic&lt;/h2&gt;
+&lt;h4 id=&#34;config_defaultconfigtoml&#34;&gt;config/_default/config.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cp -p config.toml config.backup.toml
+cp /dev/null config.toml
+cp -r themes/academic/exampleSite/config ./
+sed -i &#39;s/title = &amp;quot;Academic&amp;quot;/title = &amp;quot;CUPPPA&amp;quot;/&#39; config/_default/config.toml
+sed -i &#39;s/hasCJKLanguage = false/hasCJKLanguage = true/&#39; config/_default/config.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;config_defaultparamstoml&#34;&gt;config/_default/params.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &#39;s/theme = &amp;quot;minimal&amp;quot;/theme = &amp;quot;dark&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/email = &amp;quot;test@example.org&amp;quot;/email = &amp;quot;cupppa@gmail.com&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/^date_format = &amp;quot;Jan 2, 2006&amp;quot;/date_format = &amp;quot;2006-01-02&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/^time_format = &amp;quot;3:04 PM&amp;quot;/time_format = &amp;quot;15:04&amp;quot;/&#39; config/_default/params.toml
+sed -i &#39;s/sharing = true/sharing = false/&#39; config/_default/params.toml
+sed -i &#39;s/netlify_cms = true/netlify_cms = false/&#39; config/_default/params.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and change or comment lines start with &lt;code&gt;phone&lt;/code&gt;, &lt;code&gt;address&lt;/code&gt;, &lt;code&gt;coordinates&lt;/code&gt;, &lt;code&gt;directions&lt;/code&gt;, &lt;code&gt;office_time&lt;/code&gt;, &lt;code&gt;appointment_url&lt;/code&gt;, &lt;code&gt;contact_links&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;config_defaultmenustoml&#34;&gt;config/_default/menus.toml&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;config/_default/menus.toml &amp;lt;&amp;lt;EOF
+[[main]]
+  name = &amp;quot;Posts&amp;quot;
+  url = &amp;quot;post&amp;quot;
+  weight = 10
+
+[[main]]
+  name = &amp;quot;Tags&amp;quot;
+  url = &amp;quot;tags&amp;quot;
+  weight = 20
+
+[[main]]
+  name = &amp;quot;Categories&amp;quot;
+  url = &amp;quot;categories&amp;quot;
+  weight = 30
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;homepage&#34;&gt;homepage&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;mkdir content/home/
+cp themes/academic/exampleSite/content/home/index.md content/home/
+cp themes/academic/exampleSite/content/home/posts.md content/home/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;now your can view the site with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo server --watch --verbose
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-homepage&#34;&gt;Custom Homepage&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p layouts/partials/widgets
+cp themes/academic/layouts/partials/widgets/pages.html layouts/partials/widgets/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;refer to &lt;code&gt;theme/academic/layouts/partials/widgets/tag_cloud.html&lt;/code&gt;, replace &amp;ldquo;Recent Post&amp;rdquo; partial (&lt;code&gt;&amp;lt;div class=&amp;quot;col-12 col-lg-4 section-headeing&amp;quot;&amp;gt;...&amp;lt;/div&amp;gt;&lt;/code&gt;) with below content and move it from left to right side on homepage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;lt;div class=&amp;quot;col-12 col-lg-4 section-heading&amp;quot;&amp;gt;
+
+    {{ $fontSmall := $st.Params.design.font_size_min | default 0.8 }}
+    {{ $fontBig := $st.Params.design.font_size_max | default 2.5 }}
+    {{ $fontDelta := sub $fontBig $fontSmall }}
+
+    {{ range $taxonomy, $values := site.Taxonomies }}
+
+      {{ $tags := (index site.Taxonomies $taxonomy).ByCount }}
+      {{ $count := len $tags }}
+
+      {{/* Warning: Hugo&#39;s `Reverse` function appears to operate in-place, hence the order of performing $max/$min matters. */}}
+      {{ $max := add (len (index $tags 0).Pages) 1 }}
+      {{ $min := len (index ($tags).Reverse 0).Pages }}
+      {{ $delta := sub $max $min }}
+
+    &amp;lt;div class=&amp;quot;row card-simple&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;col-12 section-heading&amp;quot;&amp;gt;
+        &amp;lt;h1&amp;gt;{{ with $taxonomy }}{{ . | markdownify | emojify | title }}{{ end }}&amp;lt;/h1&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;col-12&amp;quot;&amp;gt;
+        {{ if ne $count 0 }}
+          &amp;lt;div class=&amp;quot;tag-cloud&amp;quot;&amp;gt;
+            {{ range $name, $term := (sort $tags &amp;quot;.Page.Title&amp;quot; &amp;quot;asc&amp;quot;) }}
+              {{ $tagCount := len $term.Pages }}
+              {{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+              {{ $fontSize := add $fontSmall (mul (sub $fontBig $fontSmall) $weight) }}
+              &amp;lt;a href=&amp;quot;{{ .Page.RelPermalink }}&amp;quot; style=&amp;quot;font-size:{{ $fontSize }}rem&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;badge badge-light&amp;quot;&amp;gt;{{ $tagCount }}&amp;lt;/span&amp;gt; {{ .Page.Title }}&amp;lt;/a&amp;gt;
+            {{ end }}
+          &amp;lt;/div&amp;gt;
+        {{ end }}
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    {{ end }}
+
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;localize-cssjsfont&#34;&gt;Localize css/js/font&lt;/h2&gt;
+&lt;p&gt;Edit params.toml to change font to &amp;ldquo;native&amp;rdquo;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed -i &#39;s/font = &amp;quot;&amp;quot;/font = &amp;quot;native&amp;quot;/&#39; params.toml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Install 
+&lt;a href=&#34;https://github.com/sourcethemes/academic-admin&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic Admin&lt;/a&gt; tool and import JS and CSS assets to static/&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip3 install academic
+academic import --assets
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add Font Awesome font assets to static/&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.12.0/fontawesome-free-5.12.0-web.zip -o ~/Downloads/
+unzip ~/Downloads/fontawesome-free-5.12.0-web.zip
+rsync -av fontawesome-free-5.12.0-web/webfonts static/css/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-axonomy-term-list-page&#34;&gt;Custom Axonomy term list page&lt;/h2&gt;
+&lt;p&gt;Refer to &lt;code&gt;themes/academic/layouts/partials/widgets/{tag_cloud,pages}.html&lt;/code&gt;, add template &lt;code&gt;layouts/_default/terms.html&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;layouts/_default/terms.html &amp;lt;&amp;lt;EOF&amp;gt;
+{{- define &amp;quot;main&amp;quot; -}}
+
+{{ partial &amp;quot;page_header.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;universal-wrapper&amp;quot;&amp;gt;
+  {{ with .Content }}
+  &amp;lt;div class=&amp;quot;article-style&amp;quot;&amp;gt;{{ . }}&amp;lt;/div&amp;gt;
+  {{ end }}
+
+  {{ if eq .Type &amp;quot;tags&amp;quot; }}
+
+    {{ $st := . }}
+    {{ $tags := .Data.Pages }}
+    {{ $count := len $tags }}
+
+    {{ $fontSmall := $st.Params.design.font_size_min | default 0.8 }}
+    {{ $fontBig := $st.Params.design.font_size_max | default 2.5 }}
+
+    &amp;lt;div class=&amp;quot;card-simple&amp;quot;&amp;gt;
+
+      {{ if ne $count 0 }}
+    
+        {{ $fontDelta := sub $fontBig $fontSmall }}
+        {{/* Warning: Hugo&#39;s `Reverse` function appears to operate in-place, hence the order of performing $max/$min matters. */}}
+        {{ $max := add (len (index $tags 0).Pages) 1 }}
+        {{ $min := len (index ($tags).Reverse 0).Pages }}
+        {{ $delta := sub $max $min }}
+        {{ $fontStep := div $fontDelta $delta }}
+    
+        &amp;lt;div class=&amp;quot;tag-cloud&amp;quot;&amp;gt;
+          {{ range $name, $term := (sort $tags &amp;quot;.Page.Title&amp;quot; &amp;quot;asc&amp;quot;) }}
+            {{ $tagCount := len $term.Pages }}
+            {{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+            {{ $fontSize := add $fontSmall (mul (sub $fontBig $fontSmall) $weight) }}
+            &amp;lt;a href=&amp;quot;{{ .Page.RelPermalink }}&amp;quot; style=&amp;quot;font-size:{{ $fontSize }}rem&amp;quot;&amp;gt;{{ .Page.Title }}&amp;lt;/a&amp;gt;
+          {{ end }}
+        &amp;lt;/div&amp;gt;
+      {{ end }}
+    
+    &amp;lt;/div&amp;gt;
+
+  {{ else if eq .Type &amp;quot;categories&amp;quot; }}
+
+    {{ $view := .Params.design.view }}
+
+    {{ range .Data.Pages }}
+      {{ $link := .RelPermalink }}
+      {{ $target := &amp;quot;&amp;quot; }}
+      {{ with .Params.external_link }}
+        {{ $link = . }}
+        {{ $target = &amp;quot;target=\&amp;quot;_blank\&amp;quot; rel=\&amp;quot;noopener\&amp;quot;&amp;quot; }}
+      {{ end }}
+
+      {{ $st := . }}
+      {{ $count := len $st.Pages }}
+
+      {{ $view = $st.Params.design.view | default $view }}
+
+      {{ $items_count := $st.Params.content.count }}
+      {{ if eq $items_count 0 }}
+        {{ $items_count = 65535 }}
+      {{ else }}
+        {{ $items_count = $items_count | default 5 }}
+      {{ end }}
+
+      &amp;lt;div class=&amp;quot;card-simple&amp;quot;&amp;gt;
+
+        &amp;lt;div class=&amp;quot;row&amp;quot;&amp;gt;
+          &amp;lt;div class=&amp;quot;col-12 col-lg-4&amp;quot;&amp;gt;
+            &amp;lt;h2&amp;gt;
+              &amp;lt;a href=&amp;quot;{{$link}}&amp;quot; {{ $target | safeHTMLAttr }}&amp;gt;
+                &amp;lt;i class=&amp;quot;fas fa-folder mr-1&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+                {{ .Title }}
+                [&amp;lt;span class=&amp;quot;&amp;quot;&amp;gt;{{ if ge $count $items_count }}{{ $items_count }}/{{ end }}{{ $count }}&amp;lt;/span&amp;gt;]&amp;lt;/a&amp;gt;
+            &amp;lt;/h2&amp;gt;
+            {{ with $st.Content }}{{ . }}{{ end }}
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;quot;col-12 col-lg-8&amp;quot;&amp;gt;
+
+            {{ range first $items_count .Pages }}
+              {{ if eq $view 1 }}
+                {{ partial &amp;quot;li_list&amp;quot; . }}
+              {{ else if eq $view 3 }}
+                {{ partial &amp;quot;li_card&amp;quot; . }}
+              {{ else }}
+                {{ partial &amp;quot;li_compact&amp;quot; . }}
+              {{ end }}
+            {{end}}
+
+          &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+      &amp;lt;/div&amp;gt;
+      
+    {{ end }}
+
+  {{ end }}
+
+&amp;lt;/div&amp;gt;
+
+{{- end -}}
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add &lt;code&gt;content/{tags,categories}/_index.md&lt;/code&gt; to appoint list style to &lt;code&gt;card&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;content/categories/_index.md &amp;lt;&amp;lt;EOF
++++
+title = &amp;quot;Categories&amp;quot;
+
+[design]
+  # 1: list
+  # 2: compact
+  # 3: card
+  view = 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;custom-axonomy-term-page&#34;&gt;Custom axonomy term page&lt;/h2&gt;
+&lt;p&gt;Refer to &lt;code&gt;themes/academic/_default/list.html&lt;/code&gt; and &lt;code&gt;themes/academic/_default/partials/widgets/pages.html&lt;/code&gt;, add template &lt;code&gt;layouts/_default/term.html&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt;layouts/_default/term.html &amp;lt;&amp;lt;EOF
+{{- define &amp;quot;main&amp;quot; -}}
+
+{{ partial &amp;quot;page_header.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;universal-wrapper&amp;quot;&amp;gt;
+
+  {{ with .Content }}
+  &amp;lt;div class=&amp;quot;article-style&amp;quot;&amp;gt;{{ . }}&amp;lt;/div&amp;gt;
+  {{ end }}
+
+  {{ $view := .Parent.Params.design.view }}
+
+  {{ $paginator := .Paginate .Data.Pages }}
+  {{ range $paginator.Pages }}
+    {{ if eq $view 1 }}
+      {{ partial &amp;quot;li_list&amp;quot; . }}
+    {{ else if eq $view 3 }}
+      {{ partial &amp;quot;li_card&amp;quot; . }}
+    {{ else }}
+      {{ partial &amp;quot;li_compact&amp;quot; . }}
+    {{ end }}
+  {{ end }}
+
+  {{ partial &amp;quot;pagination&amp;quot; . }}
+
+&amp;lt;/div&amp;gt;
+
+{{- end -}}
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

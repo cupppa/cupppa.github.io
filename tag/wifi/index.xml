@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wifi | CUPPPA</title>
+    <link>/tag/wifi/</link>
+      <atom:link href="/tag/wifi/index.xml" rel="self" type="application/rss+xml" />
+    <description>wifi</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 29 Jun 2020 15:55:22 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>wifi</title>
+      <link>/tag/wifi/</link>
+    </image>
+    
+    <item>
+      <title>Make Qrcode of Home Wifi</title>
+      <link>/post/make-wifi-qrcode/</link>
+      <pubDate>Mon, 29 Jun 2020 15:55:22 +0800</pubDate>
+      <guid>/post/make-wifi-qrcode/</guid>
+      <description>&lt;h3 id=&#34;使用python代码制作wifi二维码&#34;&gt;使用python代码制作wifi二维码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ pip install wifi-qrcode-generator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ wifi-qrcode-generator
+SSID: SOMESSID
+Is the network hidden (default is false): y
+Authentication types: WPA/WPA2, WEP, nopass
+Authentication type (default is WPA/WPA2):
+Password: 
+The qr code has been stored in the current directory.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ ls -l SOMESSID.png
+-rw-r--r--  1 cupppa  staff  837  6 29 16:11 SOMESSID.png
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

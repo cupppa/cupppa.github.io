@@ -1,16 +1,115 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://cupppa.github.io/en/sitemap.xml</loc>
-		
-	   	<lastmod>2019-07-24T11:45:30+08:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://cupppa.github.io/zh-cn/sitemap.xml</loc>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2020-07-06T17:18:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/academic/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/blog/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/blog-with-hugo-and-academic/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/hugo/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-07-01T23:07:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/linux/</loc>
+    <lastmod>2020-07-01T11:52:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/network/</loc>
+    <lastmod>2020-07-01T11:52:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/tcpdump/</loc>
+    <lastmod>2020-07-01T11:52:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/tcpdump-usage/</loc>
+    <lastmod>2020-07-01T11:52:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/make-wifi-qrcode/</loc>
+    <lastmod>2020-06-29T15:55:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/python/</loc>
+    <lastmod>2020-06-29T15:55:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/qrcode/</loc>
+    <lastmod>2020-06-29T15:55:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/wifi/</loc>
+    <lastmod>2020-06-29T15:55:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/docker/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/gui/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/mac/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/running-guis-with-docker-on-mac-os-x/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/virtualize/</loc>
+    <lastmod>2019-07-24T11:45:30+08:00</lastmod>
+  </url>
+  
+</urlset>

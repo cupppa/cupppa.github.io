@@ -1,87 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on CUPPPA</title>
-    <link>https://cupppa.github.io/categories/</link>
-    <description>Recent content in Categories on CUPPPA</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 24 Jul 2019 11:45:30 +0800</lastBuildDate>
-    
-	<atom:link href="https://cupppa.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>chrome</title>
-      <link>https://cupppa.github.io/categories/chrome/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/chrome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://cupppa.github.io/categories/docker/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac</title>
-      <link>https://cupppa.github.io/categories/mac/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mac OS X</title>
-      <link>https://cupppa.github.io/categories/mac-os-x/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/mac-os-x/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OS X</title>
-      <link>https://cupppa.github.io/categories/os-x/</link>
-      <pubDate>Wed, 24 Jul 2019 11:45:30 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/os-x/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cms</title>
-      <link>https://cupppa.github.io/categories/cms/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/cms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>https://cupppa.github.io/categories/development/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://cupppa.github.io/categories/golang/</link>
-      <pubDate>Sat, 14 Apr 2018 16:32:10 +0800</pubDate>
-      
-      <guid>https://cupppa.github.io/categories/golang/</guid>
-      <description></description>
-    </item>
+    <title>Categories | CUPPPA</title>
+    <link>/categories/</link>
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 23:07:31 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Categories</title>
+      <link>/categories/</link>
+    </image>
     
   </channel>
 </rss>

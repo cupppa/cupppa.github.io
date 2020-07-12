@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>network | CUPPPA</title>
+    <link>/category/network/</link>
+      <atom:link href="/category/network/index.xml" rel="self" type="application/rss+xml" />
+    <description>network</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 11:52:38 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>network</title>
+      <link>/category/network/</link>
+    </image>
+    
+    <item>
+      <title>Tcpdump Usage</title>
+      <link>/post/tcpdump-usage/</link>
+      <pubDate>Wed, 01 Jul 2020 11:52:38 +0800</pubDate>
+      <guid>/post/tcpdump-usage/</guid>
+      <description>&lt;h2 id=&#34;tcpdump-usage&#34;&gt;Tcpdump Usage&lt;/h2&gt;
+&lt;h4 id=&#34;查找reset包&#34;&gt;查找reset包&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;tcpdump -r xxxx.pcap &#39;tcp[tcpflags] &amp;amp; tcp-rst != 0&#39;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Make Qrcode of Home Wifi</title>
+      <link>/post/make-wifi-qrcode/</link>
+      <pubDate>Mon, 29 Jun 2020 15:55:22 +0800</pubDate>
+      <guid>/post/make-wifi-qrcode/</guid>
+      <description>&lt;h3 id=&#34;使用python代码制作wifi二维码&#34;&gt;使用python代码制作wifi二维码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ pip install wifi-qrcode-generator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ wifi-qrcode-generator
+SSID: SOMESSID
+Is the network hidden (default is false): y
+Authentication types: WPA/WPA2, WEP, nopass
+Authentication type (default is WPA/WPA2):
+Password: 
+The qr code has been stored in the current directory.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ ls -l SOMESSID.png
+-rw-r--r--  1 cupppa  staff  837  6 29 16:11 SOMESSID.png
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
