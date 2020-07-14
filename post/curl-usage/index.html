@@ -23,10 +23,10 @@
   
     
   
-  <meta name="description" content="Generate a qrcode for home wifi with pythonn wifi-qrcode-generator.">
+  <meta name="description" content="Examples using curl.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/make-wifi-qrcode/">
+  <link rel="alternate" hreflang="en-us" href="/post/curl-usage/">
 
   
 
@@ -75,7 +75,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/make-wifi-qrcode/">
+  <link rel="canonical" href="/post/curl-usage/">
 
   
   
@@ -91,15 +91,15 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="CUPPPA">
-  <meta property="og:url" content="/post/make-wifi-qrcode/">
-  <meta property="og:title" content="Make Qrcode of Home Wifi | CUPPPA">
-  <meta property="og:description" content="Generate a qrcode for home wifi with pythonn wifi-qrcode-generator."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:url" content="/post/curl-usage/">
+  <meta property="og:title" content="Curl Usage | CUPPPA">
+  <meta property="og:description" content="Examples using curl."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-06-29T15:55:22&#43;08:00">
+      <meta property="article:published_time" content="2020-07-14T10:57:14&#43;08:00">
     
-    <meta property="article:modified_time" content="2020-06-29T15:55:22&#43;08:00">
+    <meta property="article:modified_time" content="2020-07-14T10:57:14&#43;08:00">
   
 
   
@@ -123,12 +123,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/make-wifi-qrcode/"
+    "@id": "/post/curl-usage/"
   },
-  "headline": "Make Qrcode of Home Wifi",
+  "headline": "Curl Usage",
   
-  "datePublished": "2020-06-29T15:55:22+08:00",
-  "dateModified": "2020-06-29T15:55:22+08:00",
+  "datePublished": "2020-07-14T10:57:14+08:00",
+  "dateModified": "2020-07-14T10:57:14+08:00",
   
   "author": {
     "@type": "Person",
@@ -143,7 +143,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Generate a qrcode for home wifi with pythonn wifi-qrcode-generator."
+  "description": "Examples using curl."
 }
 </script>
 
@@ -161,7 +161,7 @@
 
 
 
-  <title>Make Qrcode of Home Wifi | CUPPPA</title>
+  <title>Curl Usage | CUPPPA</title>
 
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="dark">
@@ -383,7 +383,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Make Qrcode of Home Wifi</h1>
+  <h1>Curl Usage</h1>
 
   
 
@@ -402,7 +402,7 @@
     
       
     
-    2020-06-29
+    2020-07-14
   </span>
   
 
@@ -423,7 +423,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/network/">network</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/mac/">mac</a>, <a href="/category/linux/">linux</a>, <a href="/category/network/">network</a></span>
   
 
 </div>
@@ -451,20 +451,40 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h3 id="使用python代码制作wifi二维码">使用python代码制作wifi二维码</h3>
-<pre><code>$ pip install wifi-qrcode-generator
+      <p>Some examples using curl.</p>
+<!-- more -->
+<h2 id="continue-file-transfer">Continue file transfer</h2>
+<p>command line</p>
+<pre><code> curl -C - -O &lt;url&gt;
 </code></pre>
-<pre><code>$ wifi-qrcode-generator
-SSID: SOMESSID
-Is the network hidden (default is false): y
-Authentication types: WPA/WPA2, WEP, nopass
-Authentication type (default is WPA/WPA2):
-Password: 
-The qr code has been stored in the current directory.
+<p>man</p>
+<pre><code>       -C, --continue-at &lt;offset&gt;
+              Continue/Resume  a  previous  file transfer at the given offset. The given
+              offset is the exact number of bytes that will be  skipped,  counting  from
+              the  beginning of the source file before it is transferred to the destina‐
+              tion.  If used with uploads, the FTP server command SIZE will not be  used
+              by curl.
+
+              Use  &quot;-C -&quot; to tell curl to automatically find out where/how to resume the
+              transfer. It then uses the given output/input files to figure that out.
+
+              If this option is used several times, the last one will be used.
 </code></pre>
-<pre><code>$ ls -l SOMESSID.png
--rw-r--r--  1 cupppa  staff  837  6 29 16:11 SOMESSID.png
+<pre><code>       -O, --remote-name
+              Write output to a local file named like the remote file we get. (Only  the
+              file part of the remote file is used, the path is cut off.)
+
+              The  remote  file  name to use for saving is extracted from the given URL,
+              nothing else.
+
+              Consequentially, the file will be saved in the current working  directory.
+              If  you want the file saved in a different directory, make sure you change
+              current working directory before you invoke curl with  the  -O,  --remote-
+              name flag!
+
+              You may use this option as many times as the number of URLs you have.
 </code></pre>
+
     </div>
 
     
@@ -476,11 +496,7 @@ The qr code has been stored in the current directory.
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/qrcode/">qrcode</a>
-  
-  <a class="badge badge-light" href="/tag/wifi/">wifi</a>
-  
-  <a class="badge badge-light" href="/tag/python/">python</a>
+  <a class="badge badge-light" href="/tag/curl/">curl</a>
   
 </div>
 
@@ -514,9 +530,11 @@ The qr code has been stored in the current directory.
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/post/curl-usage/">Curl Usage</a></li>
-      
       <li><a href="/post/tcpdump-usage/">Tcpdump Usage</a></li>
+      
+      <li><a href="/post/make-wifi-qrcode/">Make Qrcode of Home Wifi</a></li>
+      
+      <li><a href="/post/running-guis-with-docker-on-mac-os-x/">Running GUI&#39;s with Docker on Mac OS X</a></li>
       
     </ul>
   </div>

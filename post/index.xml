@@ -5,12 +5,53 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>CUPPPA</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 2020 23:07:31 +0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Jul 2020 10:57:14 +0800</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>CUPPPA</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Curl Usage</title>
+      <link>/post/curl-usage/</link>
+      <pubDate>Tue, 14 Jul 2020 10:57:14 +0800</pubDate>
+      <guid>/post/curl-usage/</guid>
+      <description>&lt;p&gt;Some examples using curl.&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;continue-file-transfer&#34;&gt;Continue file transfer&lt;/h2&gt;
+&lt;p&gt;command line&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; curl -C - -O &amp;lt;url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;man&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;       -C, --continue-at &amp;lt;offset&amp;gt;
+              Continue/Resume  a  previous  file transfer at the given offset. The given
+              offset is the exact number of bytes that will be  skipped,  counting  from
+              the  beginning of the source file before it is transferred to the destina‐
+              tion.  If used with uploads, the FTP server command SIZE will not be  used
+              by curl.
+
+              Use  &amp;quot;-C -&amp;quot; to tell curl to automatically find out where/how to resume the
+              transfer. It then uses the given output/input files to figure that out.
+
+              If this option is used several times, the last one will be used.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;       -O, --remote-name
+              Write output to a local file named like the remote file we get. (Only  the
+              file part of the remote file is used, the path is cut off.)
+
+              The  remote  file  name to use for saving is extracted from the given URL,
+              nothing else.
+
+              Consequentially, the file will be saved in the current working  directory.
+              If  you want the file saved in a different directory, make sure you change
+              current working directory before you invoke curl with  the  -O,  --remote-
+              name flag!
+
+              You may use this option as many times as the number of URLs you have.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Blog with Hugo and Academic</title>
