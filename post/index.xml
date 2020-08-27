@@ -5,12 +5,77 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>CUPPPA</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Jul 2020 10:57:14 +0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 17:03:38 +0800</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>CUPPPA</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Live Code Reloading for Golang Web Project</title>
+      <link>/post/live-code-reloading-for-golang-web-project/</link>
+      <pubDate>Mon, 27 Jul 2020 17:03:38 +0800</pubDate>
+      <guid>/post/live-code-reloading-for-golang-web-project/</guid>
+      <description>&lt;p&gt;refer to: 
+&lt;a href=&#34;https://medium.com/@olebedev/live-code-reloading-for-golang-web-projects-in-19-lines-8b2e8777b1ea&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Live code reloading for Golang web projects in 19 lines&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;create-a-makefile&#34;&gt;Create a Makefile&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;PID      = /tmp/awesome-golang-project.pid
+FILES    = $(wildcard *.go) $(wildcard */*.go) $(wildcard layouts/*/*.html) $(wildcard layouts/*/*/*.html)
+GOFILES  = $(wildcard *.go) $(wildcard */*.go)
+APP      = ./awesome-golang-project
+
+serve: restart
+	@fswatch -e &#39;.*\.sw.$&#39; -e &#39;.*~$&#39; -o . | xargs -n1 -I{} make restart || make kill
+
+kill:
+	@test ! -f $(PID) || kill `cat $(PID)` || true
+	@test ! -f $(PID) || rm $(PID) || true
+
+before:
+	@echo &amp;quot;----------------&amp;quot;
+	@date
+	@echo &amp;quot;----------------&amp;quot;
+
+$(APP): $(FILES)
+	@go build $(GO_FILES) -o $@
+
+restart: before kill $(APP)
+	@$(APP) &amp;amp; echo $$! &amp;gt; $(PID)
+
+build:
+	@go build .
+
+.PHONY: serve restart kill before # let&#39;s go to reserve rules names
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice: attention restart command line &lt;code&gt;@$(APP) &amp;amp; echo $$! &amp;gt; $(PID)&lt;/code&gt;, do not use &lt;code&gt;@go run .&lt;/code&gt; instead, because golang will build a temporary executable file and execute it, than the &lt;code&gt;$$!&lt;/code&gt; is not the final process id. (here is result with golang version 1.13).&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;brew install fswatch
+make serve
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mac Usage</title>
+      <link>/post/mac-usage/</link>
+      <pubDate>Tue, 14 Jul 2020 11:32:17 +0800</pubDate>
+      <guid>/post/mac-usage/</guid>
+      <description>&lt;p&gt;Some config to using mac.&lt;/p&gt;
+&lt;h2 id=&#34;terminal-colors&#34;&gt;Terminal colors&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; ~/.bash_profile &amp;lt;&amp;lt;EOF
+# enable color in the terminal bash shell
+export CLICOLOR=1
+# setup the color scheme for list
+export LSCOLORS=gxfxcxdxbxegedabagacad
+# setup the prompt color
+export PS1=&#39;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ &#39;
+# enable color for terminal
+export TERM=xterm-256color
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Curl Usage</title>

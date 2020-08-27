@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal | CUPPPA</title>
+    <link>/tag/terminal/</link>
+      <atom:link href="/tag/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <description>terminal</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Jul 2020 11:32:17 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>terminal</title>
+      <link>/tag/terminal/</link>
+    </image>
+    
+    <item>
+      <title>Mac Usage</title>
+      <link>/post/mac-usage/</link>
+      <pubDate>Tue, 14 Jul 2020 11:32:17 +0800</pubDate>
+      <guid>/post/mac-usage/</guid>
+      <description>&lt;p&gt;Some config to using mac.&lt;/p&gt;
+&lt;h2 id=&#34;terminal-colors&#34;&gt;Terminal colors&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; ~/.bash_profile &amp;lt;&amp;lt;EOF
+# enable color in the terminal bash shell
+export CLICOLOR=1
+# setup the color scheme for list
+export LSCOLORS=gxfxcxdxbxegedabagacad
+# setup the prompt color
+export PS1=&#39;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ &#39;
+# enable color for terminal
+export TERM=xterm-256color
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
