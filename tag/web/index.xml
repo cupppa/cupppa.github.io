@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web | CUPPPA</title>
+    <link>/tag/web/</link>
+      <atom:link href="/tag/web/index.xml" rel="self" type="application/rss+xml" />
+    <description>web</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jul 2020 17:03:38 +0800</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>web</title>
+      <link>/tag/web/</link>
+    </image>
+    
+    <item>
+      <title>Live Code Reloading for Golang Web Project</title>
+      <link>/post/live-code-reloading-for-golang-web-project/</link>
+      <pubDate>Mon, 27 Jul 2020 17:03:38 +0800</pubDate>
+      <guid>/post/live-code-reloading-for-golang-web-project/</guid>
+      <description>&lt;p&gt;refer to: 
+&lt;a href=&#34;https://medium.com/@olebedev/live-code-reloading-for-golang-web-projects-in-19-lines-8b2e8777b1ea&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Live code reloading for Golang web projects in 19 lines&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;create-a-makefile&#34;&gt;Create a Makefile&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;PID      = /tmp/awesome-golang-project.pid
+FILES    = $(wildcard *.go) $(wildcard */*.go) $(wildcard layouts/*/*.html) $(wildcard layouts/*/*/*.html)
+GOFILES  = $(wildcard *.go) $(wildcard */*.go)
+APP      = ./awesome-golang-project
+
+serve: restart
+	@fswatch -e &#39;.*\.sw.$&#39; -e &#39;.*~$&#39; -o . | xargs -n1 -I{} make restart || make kill
+
+kill:
+	@test ! -f $(PID) || kill `cat $(PID)` || true
+	@test ! -f $(PID) || rm $(PID) || true
+
+before:
+	@echo &amp;quot;----------------&amp;quot;
+	@date
+	@echo &amp;quot;----------------&amp;quot;
+
+$(APP): $(FILES)
+	@go build $(GO_FILES) -o $@
+
+restart: before kill $(APP)
+	@$(APP) &amp;amp; echo $$! &amp;gt; $(PID)
+
+build:
+	@go build .
+
+.PHONY: serve restart kill before # let&#39;s go to reserve rules names
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice: attention restart command line &lt;code&gt;@$(APP) &amp;amp; echo $$! &amp;gt; $(PID)&lt;/code&gt;, do not use &lt;code&gt;@go run .&lt;/code&gt; instead, because golang will build a temporary executable file and execute it, than the &lt;code&gt;$$!&lt;/code&gt; is not the final process id. (here is result with golang version 1.13).&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;brew install fswatch
+make serve
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

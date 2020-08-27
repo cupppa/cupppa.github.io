@@ -17,8 +17,7 @@
       <link>/post/mac-usage/</link>
       <pubDate>Tue, 14 Jul 2020 11:32:17 +0800</pubDate>
       <guid>/post/mac-usage/</guid>
-      <description>&lt;p&gt;Some config to using mac.&lt;/p&gt;
-&lt;h2 id=&#34;terminal-colors&#34;&gt;Terminal colors&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;terminal-colors&#34;&gt;Terminal colors&lt;/h2&gt;
 &lt;pre&gt;&lt;code&gt;cat &amp;gt; ~/.bash_profile &amp;lt;&amp;lt;EOF
 # enable color in the terminal bash shell
 export CLICOLOR=1
