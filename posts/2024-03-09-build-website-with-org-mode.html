@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Build Website with Org Mode</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Build Website with Org Mode</h1>
+
+<div id="outline-container-org2546875" class="outline-2">
+<h2 id="org2546875">Version 2024-03-09</h2>
+<div class="outline-text-2" id="text-org2546875">
+</div>
+<div id="outline-container-org9b6247f" class="outline-3">
+<h3 id="org9b6247f">参考</h3>
+<div class="outline-text-3" id="text-org9b6247f">
+<ul class="org-ul">
+<li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/">Build Your Website with Org Mode</a></li>
+<li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website Publishing with GitHub or SourceHut</a></li>
+<li><a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">Publishing Org-mode files to HTML</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b2f8ae" class="outline-3">
+<h3 id="org8b2f8ae">配置</h3>
+<div class="outline-text-3" id="text-org8b2f8ae">
+</div>
+<div id="outline-container-orgaec4b04" class="outline-4">
+<h4 id="orgaec4b04">build-site.el</h4>
+<div class="outline-text-4" id="text-orgaec4b04">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the</span>
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.</span>
+(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">package</span>)
+(<span style="font-weight: bold;">setq</span> package-user-dir (expand-file-name <span style="font-style: italic;">"./.packages"</span>))
+(<span style="font-weight: bold;">setq</span> package-archives '((<span style="font-style: italic;">"melpa"</span> . <span style="font-style: italic;">"https://melpa.org/packages/"</span>)
+                         (<span style="font-style: italic;">"elpa"</span> . <span style="font-style: italic;">"https://elpa.gnu.org/packages/"</span>)))
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Initialize the package system</span>
+(package-initialize)
+(<span style="font-weight: bold;">unless</span> package-archive-contents
+  (package-refresh-contents))
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Install dependencies</span>
+(package-install 'htmlize)
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Load the publishing system</span>
+(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Customize the HTML output</span>
+(<span style="font-weight: bold;">setq</span> org-html-validation-link nil            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't show validation link</span>
+      org-html-head-include-scripts nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own scripts</span>
+      org-html-head-include-default-style nil <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own styles</span>
+      org-html-head <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" /&gt;"</span>)
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Define the publishing project</span>
+(<span style="font-weight: bold;">setq</span> org-publish-project-alist
+      (list
+       (list <span style="font-style: italic;">"org-site:main"</span>
+             <span style="font-weight: bold;">:recursive</span> t
+             <span style="font-weight: bold;">:base-directory</span> <span style="font-style: italic;">"./org"</span>
+             <span style="font-weight: bold;">:publishing-function</span> 'org-html-publish-to-html
+             <span style="font-weight: bold;">:publishing-directory</span> <span style="font-style: italic;">"./public_html"</span>
+             <span style="font-weight: bold;">:with-author</span> nil           <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include author name</span>
+             <span style="font-weight: bold;">:with-creator</span> t            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include Emacs and Org versions in footer</span>
+             <span style="font-weight: bold;">:with-toc</span> nil              <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include a table of contents</span>
+             <span style="font-weight: bold;">:section-numbers</span> nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include section numbers</span>
+             <span style="font-weight: bold;">:time-stamp-file</span> nil)))    <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include time stamp in file</span>
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Generate the site output</span>
+(org-publish-all t)
+
+(message <span style="font-style: italic;">"Build complete!"</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4929239" class="outline-4">
+<h4 id="org4929239">build.sh</h4>
+<div class="outline-text-4" id="text-org4929239">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span>
+emacs -Q --script build-site.el
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5d418ec" class="outline-4">
+<h4 id="org5d418ec">.github/workflows/publish.yml</h4>
+<div class="outline-text-4" id="text-org5d418ec">
+<div class="org-src-container">
+<pre class="src src-yaml">name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+	uses: actions/checkout@v1
+
+      - name: Install Emacs
+	run: sudo apt install emacs-nox --yes
+
+      - name: Build the site
+	run: ./build.sh
+
+      - name: Publish generated content to GitHub Pages
+	uses: JamesIves/github-pages-deploy-action@4.1.4
+	with:
+	  branch: gh-pages
+	  folder: public_html
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+</div>
+</body>
+</html>
