@@ -13,13 +13,13 @@
 <div id="content">
 <h1 class="title">Build Website with Org Mode</h1>
 
-<div id="outline-container-org2546875" class="outline-2">
-<h2 id="org2546875">Version 2024-03-09</h2>
-<div class="outline-text-2" id="text-org2546875">
+<div id="outline-container-org7335857" class="outline-2">
+<h2 id="org7335857">Version 2024-03-09</h2>
+<div class="outline-text-2" id="text-org7335857">
 </div>
-<div id="outline-container-org9b6247f" class="outline-3">
-<h3 id="org9b6247f">参考</h3>
-<div class="outline-text-3" id="text-org9b6247f">
+<div id="outline-container-org958879b" class="outline-3">
+<h3 id="org958879b">参考</h3>
+<div class="outline-text-3" id="text-org958879b">
 <ul class="org-ul">
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/">Build Your Website with Org Mode</a></li>
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website Publishing with GitHub or SourceHut</a></li>
@@ -27,13 +27,13 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8b2f8ae" class="outline-3">
-<h3 id="org8b2f8ae">配置</h3>
-<div class="outline-text-3" id="text-org8b2f8ae">
+<div id="outline-container-orga87f919" class="outline-3">
+<h3 id="orga87f919">配置</h3>
+<div class="outline-text-3" id="text-orga87f919">
 </div>
-<div id="outline-container-orgaec4b04" class="outline-4">
-<h4 id="orgaec4b04">build-site.el</h4>
-<div class="outline-text-4" id="text-orgaec4b04">
+<div id="outline-container-orgb2ffbb7" class="outline-4">
+<h4 id="orgb2ffbb7">build-site.el</h4>
+<div class="outline-text-4" id="text-orgb2ffbb7">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the</span>
 <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.</span>
@@ -81,9 +81,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org4929239" class="outline-4">
-<h4 id="org4929239">build.sh</h4>
-<div class="outline-text-4" id="text-org4929239">
+<div id="outline-container-org83982c4" class="outline-4">
+<h4 id="org83982c4">build.sh</h4>
+<div class="outline-text-4" id="text-org83982c4">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span>
 emacs -Q --script build-site.el
@@ -91,9 +91,9 @@ emacs -Q --script build-site.el
 </div>
 </div>
 </div>
-<div id="outline-container-org5d418ec" class="outline-4">
-<h4 id="org5d418ec">.github/workflows/publish.yml</h4>
-<div class="outline-text-4" id="text-org5d418ec">
+<div id="outline-container-org1464fbb" class="outline-4">
+<h4 id="org1464fbb">.github/workflows/publish.yml</h4>
+<div class="outline-text-4" id="text-org1464fbb">
 <div class="org-src-container">
 <pre class="src src-yaml">name: Publish to GitHub Pages
 
