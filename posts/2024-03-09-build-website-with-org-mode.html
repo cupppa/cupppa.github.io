@@ -6,20 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Build Website with Org Mode</title>
-<meta name="generator" content="Org mode" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Build Website with Org Mode</h1>
-
-<div id="outline-container-org7335857" class="outline-2">
-<h2 id="org7335857">Version 2024-03-09</h2>
-<div class="outline-text-2" id="text-org7335857">
+<div id="outline-container-org6f27740" class="outline-2">
+<h2 id="org6f27740">Version 2024-03-09</h2>
+<div class="outline-text-2" id="text-org6f27740">
 </div>
-<div id="outline-container-org958879b" class="outline-3">
-<h3 id="org958879b">参考</h3>
-<div class="outline-text-3" id="text-org958879b">
+<div id="outline-container-org5b076d4" class="outline-3">
+<h3 id="org5b076d4">参考</h3>
+<div class="outline-text-3" id="text-org5b076d4">
 <ul class="org-ul">
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/">Build Your Website with Org Mode</a></li>
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website Publishing with GitHub or SourceHut</a></li>
@@ -27,73 +26,77 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga87f919" class="outline-3">
-<h3 id="orga87f919">配置</h3>
-<div class="outline-text-3" id="text-orga87f919">
+<div id="outline-container-orgbbd6984" class="outline-3">
+<h3 id="orgbbd6984">配置</h3>
+<div class="outline-text-3" id="text-orgbbd6984">
 </div>
-<div id="outline-container-orgb2ffbb7" class="outline-4">
-<h4 id="orgb2ffbb7">build-site.el</h4>
-<div class="outline-text-4" id="text-orgb2ffbb7">
+<div id="outline-container-org06b97dd" class="outline-4">
+<h4 id="org06b97dd">build-site.el</h4>
+<div class="outline-text-4" id="text-org06b97dd">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the</span>
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.</span>
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">package</span>)
+<pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the
+</span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.
+</span>(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">package</span>)
 (<span style="font-weight: bold;">setq</span> package-user-dir (expand-file-name <span style="font-style: italic;">"./.packages"</span>))
 (<span style="font-weight: bold;">setq</span> package-archives '((<span style="font-style: italic;">"melpa"</span> . <span style="font-style: italic;">"https://melpa.org/packages/"</span>)
                          (<span style="font-style: italic;">"elpa"</span> . <span style="font-style: italic;">"https://elpa.gnu.org/packages/"</span>)))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Initialize the package system</span>
-(package-initialize)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Initialize the package system
+</span>(package-initialize)
 (<span style="font-weight: bold;">unless</span> package-archive-contents
   (package-refresh-contents))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Install dependencies</span>
-(package-install 'htmlize)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Install dependencies
+</span>(package-install 'htmlize)
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Load the publishing system</span>
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Load the publishing system
+</span>(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Customize the HTML output</span>
-(<span style="font-weight: bold;">setq</span> org-html-validation-link nil            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't show validation link</span>
-      org-html-head-include-scripts nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own scripts</span>
-      org-html-head-include-default-style nil <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own styles</span>
-      org-html-head <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" /&gt;"</span>)
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Keep publishing state inside the workspace so local and CI builds are repeatable.
+</span>(<span style="font-weight: bold;">setq</span> org-publish-timestamp-directory
+      (file-name-as-directory (expand-file-name <span style="font-style: italic;">"./.org-timestamps"</span>)))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Define the publishing project</span>
-(<span style="font-weight: bold;">setq</span> org-publish-project-alist
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Customize the HTML output
+</span>(<span style="font-weight: bold;">setq</span> org-html-validation-link nil            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't show validation link
+</span>      org-html-head-include-scripts nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own scripts
+</span>      org-html-head-include-default-style nil <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Use our own styles
+</span>      org-html-head <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" /&gt;"</span>)
+
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Define the publishing project
+</span>(<span style="font-weight: bold;">setq</span> org-publish-project-alist
       (list
        (list <span style="font-style: italic;">"org-site:main"</span>
              <span style="font-weight: bold;">:recursive</span> t
              <span style="font-weight: bold;">:base-directory</span> <span style="font-style: italic;">"./org"</span>
              <span style="font-weight: bold;">:publishing-function</span> 'org-html-publish-to-html
              <span style="font-weight: bold;">:publishing-directory</span> <span style="font-style: italic;">"./public_html"</span>
-             <span style="font-weight: bold;">:with-author</span> nil           <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include author name</span>
-             <span style="font-weight: bold;">:with-creator</span> t            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include Emacs and Org versions in footer</span>
-             <span style="font-weight: bold;">:with-toc</span> nil              <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include a table of contents</span>
-             <span style="font-weight: bold;">:section-numbers</span> nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include section numbers</span>
-             <span style="font-weight: bold;">:time-stamp-file</span> nil)))    <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include time stamp in file</span>
-
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Generate the site output</span>
-(org-publish-all t)
+             <span style="font-weight: bold;">:with-author</span> nil           <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include author name
+</span>             <span style="font-weight: bold;">:with-creator</span> t            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include Emacs and Org versions in footer
+</span>             <span style="font-weight: bold;">:with-toc</span> nil              <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include a table of contents
+</span>             <span style="font-weight: bold;">:section-numbers</span> nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include section numbers
+</span>             <span style="font-weight: bold;">:time-stamp-file</span> nil)))    <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include time stamp in file
+</span>
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Generate the site output
+</span>(org-publish-all t)
 
 (message <span style="font-style: italic;">"Build complete!"</span>)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org83982c4" class="outline-4">
-<h4 id="org83982c4">build.sh</h4>
-<div class="outline-text-4" id="text-org83982c4">
+<div id="outline-container-org6fed968" class="outline-4">
+<h4 id="org6fed968">build.sh</h4>
+<div class="outline-text-4" id="text-org6fed968">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span>
-emacs -Q --script build-site.el
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span><span style="font-weight: bold; font-style: italic;">
+</span>emacs -Q --script build-site.el
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1464fbb" class="outline-4">
-<h4 id="org1464fbb">.github/workflows/publish.yml</h4>
-<div class="outline-text-4" id="text-org1464fbb">
+<div id="outline-container-org27fc37b" class="outline-4">
+<h4 id="org27fc37b">.github/workflows/publish.yml</h4>
+<div class="outline-text-4" id="text-org27fc37b">
 <div class="org-src-container">
 <pre class="src src-yaml">name: Publish to GitHub Pages
 
@@ -102,25 +105,78 @@ on:
     branches:
       - master
 
+concurrency:
+  group: publish-master
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-	uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install Emacs
-	run: sudo apt install emacs-nox --yes
+        run: sudo apt-get update &amp;&amp; sudo apt-get install --no-install-recommends emacs-nox --yes
+
+      - name: Cache Emacs packages
+        uses: actions/cache@v4
+        with:
+          path: .packages
+          key: emacs-packages-${{ runner.os }}-${{ hashFiles('build-site.el') }}
+          restore-keys: |
+            emacs-packages-${{ runner.os }}-
 
       - name: Build the site
-	run: ./build.sh
+        run: ./build.sh
+
+      - name: Check generated site
+        run: ./scripts/check-site.sh
 
       - name: Publish generated content to GitHub Pages
-	uses: JamesIves/github-pages-deploy-action@4.1.4
-	with:
-	  branch: gh-pages
-	  folder: public_html
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: public_html
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3262f4b" class="outline-4">
+<h4 id="org3262f4b">scripts/check-site.sh</h4>
+<div class="outline-text-4" id="text-org3262f4b">
+<p>
+发布前检查首页以及每个 Org 文件对应的 HTML 是否生成且非空，并检查 HTML 文件是否完整。构建或检查失败时，工作流不会继续发布。
+</p>
 
+<div class="org-src-container">
+<pre class="src src-sh"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span><span style="font-weight: bold; font-style: italic;">
+</span><span style="font-weight: bold;">set</span> -eu
+
+<span style="font-weight: bold;">check_file</span>() {
+  <span style="font-weight: bold; font-style: italic;">file</span>=<span style="font-style: italic;">"$1"</span>
+  <span style="font-weight: bold;">if</span> [ ! -s <span style="font-style: italic;">"$file"</span> ]; <span style="font-weight: bold;">then</span>
+    <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Missing or empty generated file: $file"</span> &gt;&amp;2
+    <span style="font-weight: bold;">exit</span> 1
+  <span style="font-weight: bold;">fi</span>
+}
+
+check_file public_html/index.html
+
+<span style="font-weight: bold;">for </span><span style="font-weight: bold;">source</span><span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">find org -type f -name '*.org' -print</span>); <span style="font-weight: bold;">do</span>
+  <span style="font-weight: bold; font-style: italic;">relative</span>=${<span style="font-weight: bold;">source</span>#org/}
+  <span style="font-weight: bold; font-style: italic;">output</span>=<span style="font-style: italic;">"public_html/${relative%.org}.html"</span>
+  check_file <span style="font-style: italic;">"$output"</span>
+  <span style="font-weight: bold;">if</span> ! grep -q <span style="font-style: italic;">'&lt;/html&gt;'</span> <span style="font-style: italic;">"$output"</span>; <span style="font-weight: bold;">then</span>
+    <span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Generated file is not complete HTML: $output"</span> &gt;&amp;2
+    <span style="font-weight: bold;">exit</span> 1
+  <span style="font-weight: bold;">fi</span>
+<span style="font-weight: bold;">done</span>
+
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"Site checks passed."</span>
 </pre>
 </div>
 </div>
@@ -129,7 +185,7 @@ jobs:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</p>
 </div>
 </body>
 </html>
