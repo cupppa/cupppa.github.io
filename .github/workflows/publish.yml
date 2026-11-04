@@ -5,22 +5,39 @@ on:
     branches:
       - master
 
+concurrency:
+  group: publish-master
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install Emacs
-        run: sudo apt install emacs-nox --yes
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends emacs-nox --yes
+
+      - name: Cache Emacs packages
+        uses: actions/cache@v4
+        with:
+          path: .packages
+          key: emacs-packages-${{ runner.os }}-${{ hashFiles('build-site.el') }}
+          restore-keys: |
+            emacs-packages-${{ runner.os }}-
 
       - name: Build the site
         run: ./build.sh
+
+      - name: Check generated site
+        run: ./scripts/check-site.sh
 
       - name: Publish generated content to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: public_html
-          

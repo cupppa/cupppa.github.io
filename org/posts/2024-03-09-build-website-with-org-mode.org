@@ -26,6 +26,10 @@
 ;; Load the publishing system
 (require 'ox-publish)
 
+;; Keep publishing state inside the workspace so local and CI builds are repeatable.
+(setq org-publish-timestamp-directory
+      (file-name-as-directory (expand-file-name "./.org-timestamps")))
+
 ;; Customize the HTML output
 (setq org-html-validation-link nil            ;; Don't show validation link
       org-html-head-include-scripts nil       ;; Use our own scripts
@@ -65,24 +69,71 @@ on:
     branches:
       - master
 
+concurrency:
+  group: publish-master
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install Emacs
-        run: sudo apt install emacs-nox --yes
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends emacs-nox --yes
+
+      - name: Cache Emacs packages
+        uses: actions/cache@v4
+        with:
+          path: .packages
+          key: emacs-packages-${{ runner.os }}-${{ hashFiles('build-site.el') }}
+          restore-keys: |
+            emacs-packages-${{ runner.os }}-
 
       - name: Build the site
         run: ./build.sh
+
+      - name: Check generated site
+        run: ./scripts/check-site.sh
 
       - name: Publish generated content to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: public_html
+#+END_SRC
 
+*** scripts/check-site.sh
+发布前检查首页以及每个 Org 文件对应的 HTML 是否生成且非空，并检查 HTML 文件是否完整。构建或检查失败时，工作流不会继续发布。
+
+#+BEGIN_SRC sh
+#!/bin/sh
+set -eu
+
+check_file() {
+  file="$1"
+  if [ ! -s "$file" ]; then
+    echo "Missing or empty generated file: $file" >&2
+    exit 1
+  fi
+}
+
+check_file public_html/index.html
+
+for source in $(find org -type f -name '*.org' -print); do
+  relative=${source#org/}
+  output="public_html/${relative%.org}.html"
+  check_file "$output"
+  if ! grep -q '</html>' "$output"; then
+    echo "Generated file is not complete HTML: $output" >&2
+    exit 1
+  fi
+done
+
+echo "Site checks passed."
 #+END_SRC
 
