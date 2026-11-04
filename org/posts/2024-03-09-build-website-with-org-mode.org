@@ -81,13 +81,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Emacs
         run: sudo apt-get update && sudo apt-get install --no-install-recommends emacs-nox --yes
 
       - name: Cache Emacs packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .packages
           key: emacs-packages-${{ runner.os }}-${{ hashFiles('build-site.el') }}
@@ -101,7 +101,7 @@ jobs:
         run: ./scripts/check-site.sh
 
       - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: gh-pages
           folder: public_html
