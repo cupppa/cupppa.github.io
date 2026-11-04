@@ -12,13 +12,13 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Build Website with Org Mode</h1>
-<div id="outline-container-org6f27740" class="outline-2">
-<h2 id="org6f27740">Version 2024-03-09</h2>
-<div class="outline-text-2" id="text-org6f27740">
+<div id="outline-container-orga73c61f" class="outline-2">
+<h2 id="orga73c61f">Version 2024-03-09</h2>
+<div class="outline-text-2" id="text-orga73c61f">
 </div>
-<div id="outline-container-org5b076d4" class="outline-3">
-<h3 id="org5b076d4">参考</h3>
-<div class="outline-text-3" id="text-org5b076d4">
+<div id="outline-container-orge5a8a1e" class="outline-3">
+<h3 id="orge5a8a1e">参考</h3>
+<div class="outline-text-3" id="text-orge5a8a1e">
 <ul class="org-ul">
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/">Build Your Website with Org Mode</a></li>
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website Publishing with GitHub or SourceHut</a></li>
@@ -26,13 +26,13 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbbd6984" class="outline-3">
-<h3 id="orgbbd6984">配置</h3>
-<div class="outline-text-3" id="text-orgbbd6984">
+<div id="outline-container-org794fb4e" class="outline-3">
+<h3 id="org794fb4e">配置</h3>
+<div class="outline-text-3" id="text-org794fb4e">
 </div>
-<div id="outline-container-org06b97dd" class="outline-4">
-<h4 id="org06b97dd">build-site.el</h4>
-<div class="outline-text-4" id="text-org06b97dd">
+<div id="outline-container-org15ec1cb" class="outline-4">
+<h4 id="org15ec1cb">build-site.el</h4>
+<div class="outline-text-4" id="text-org15ec1cb">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the
 </span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.
@@ -84,9 +84,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org6fed968" class="outline-4">
-<h4 id="org6fed968">build.sh</h4>
-<div class="outline-text-4" id="text-org6fed968">
+<div id="outline-container-orgbab5148" class="outline-4">
+<h4 id="orgbab5148">build.sh</h4>
+<div class="outline-text-4" id="text-orgbab5148">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span><span style="font-weight: bold; font-style: italic;">
 </span>emacs -Q --script build-site.el
@@ -94,9 +94,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org27fc37b" class="outline-4">
-<h4 id="org27fc37b">.github/workflows/publish.yml</h4>
-<div class="outline-text-4" id="text-org27fc37b">
+<div id="outline-container-org0493f10" class="outline-4">
+<h4 id="org0493f10">.github/workflows/publish.yml</h4>
+<div class="outline-text-4" id="text-org0493f10">
 <div class="org-src-container">
 <pre class="src src-yaml">name: Publish to GitHub Pages
 
@@ -117,13 +117,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Emacs
         run: sudo apt-get update &amp;&amp; sudo apt-get install --no-install-recommends emacs-nox --yes
 
       - name: Cache Emacs packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .packages
           key: emacs-packages-${{ runner.os }}-${{ hashFiles('build-site.el') }}
@@ -137,7 +137,7 @@ jobs:
         run: ./scripts/check-site.sh
 
       - name: Publish generated content to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: gh-pages
           folder: public_html
@@ -145,9 +145,9 @@ jobs:
 </div>
 </div>
 </div>
-<div id="outline-container-org3262f4b" class="outline-4">
-<h4 id="org3262f4b">scripts/check-site.sh</h4>
-<div class="outline-text-4" id="text-org3262f4b">
+<div id="outline-container-org5a3f75b" class="outline-4">
+<h4 id="org5a3f75b">scripts/check-site.sh</h4>
+<div class="outline-text-4" id="text-org5a3f75b">
 <p>
 发布前检查首页以及每个 Org 文件对应的 HTML 是否生成且非空，并检查 HTML 文件是否完整。构建或检查失败时，工作流不会继续发布。
 </p>
