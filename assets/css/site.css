@@ -1,0 +1,54 @@
+/* Small site-level additions layered over Simple.css. */
+#content > h1.title {
+  display: inline-block;
+  margin: 0 0 1rem;
+  vertical-align: middle;
+}
+
+#content > .site-nav {
+  float: right;
+  margin: 0 0 1rem;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid #d8dee4;
+}
+
+#content > .site-nav + .outline-2 {
+  clear: both;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li {
+  margin: 0;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.35rem;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background: #eef2f5;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  #content > h1.title {
+    display: block;
+  }
+
+  #content > .site-nav {
+    float: none;
+    margin-bottom: 1.5rem;
+  }
+}
