@@ -1,0 +1,14 @@
+#+title: 技术实践
+
+#+HTML: <nav class="site-nav" aria-label="主导航">
+- [[file:../index.org][首页]]
+- [[file:../posts/index.org][文章]]
+- [[file:index.org][分类]]
+- [[file:../about.org][关于]]
+#+HTML: </nav>
+
+* 文章
+
+- 2024-03-09 · [[file:../posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
+
+标签：`org-mode` `emacs` `website`

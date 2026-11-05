@@ -4,7 +4,7 @@
 
 ## 路由
 
-- 文章内容：读取 `org/` 与 `docs/style.md`。
+- 文章内容：读取 `org/` 与 `docs/style.md`、`docs/article-template.org`。
 - 构建逻辑：读取 `build-site.el`、`build.sh` 与 `scripts/check-site.sh`。
 - 发布逻辑：读取 `.github/workflows/publish.yml`。
 - 历史快照：`backup/` 仅供参考，不是当前内容源。

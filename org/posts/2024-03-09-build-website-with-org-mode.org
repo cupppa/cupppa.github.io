@@ -1,6 +1,17 @@
 #+title: Build Website with Org Mode
+#+date: 2024-03-09
+#+updated: 2026-11-05
+#+description: 使用 Emacs Org Mode 构建静态网站，并通过 GitHub Actions 发布。
+#+category: tech
+#+filetags: :org-mode:emacs:website:
 
-* Version 2024-03-09
+#+HTML: <nav class="site-nav" aria-label="主导航">
+- [[file:../index.org][首页]]
+- [[file:index.org][文章]]
+- [[file:../categories/tech.org][技术实践]]
+- [[file:../about.org][关于]]
+#+HTML: </nav>
+* Version 2024-03-09 (Updated 2026-11-05)
 ** 参考
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/][Build Your Website with Org Mode]]
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/][Automated Org Mode Website Publishing with GitHub or SourceHut]]  
@@ -34,24 +45,34 @@
 (setq org-html-validation-link nil            ;; Don't show validation link
       org-html-head-include-scripts nil       ;; Use our own scripts
       org-html-head-include-default-style nil ;; Use our own styles
-      org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+      org-html-head (concat
+                     "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />"
+                     "<link rel=\"stylesheet\" href=\"/assets/css/site.css\" />"))
 
-;; Define the publishing project
+;; Define the publishing projects
 (setq org-publish-project-alist
       (list
        (list "org-site:main"
              :recursive t
              :base-directory "./org"
-             :publishing-function 'org-html-publish-to-html
              :publishing-directory "./public_html"
+             :publishing-function 'org-html-publish-to-html
              :with-author nil           ;; Don't include author name
              :with-creator t            ;; Include Emacs and Org versions in footer
              :with-toc nil              ;; Include a table of contents
              :section-numbers nil       ;; Don't include section numbers
-             :time-stamp-file nil)))    ;; Don't include time stamp in file
+             :time-stamp-file nil)      ;; Don't include time stamp in file
+       (list "org-site:assets"
+             :recursive t
+             :base-directory "./org/assets"
+             :publishing-directory "./public_html/assets"
+             :base-extension "css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|svg\\|webp\\|pdf"
+             :publishing-function 'org-publish-attachment)
+       (list "org-site"
+             :components '("org-site:main" "org-site:assets"))))
 
 ;; Generate the site output
-(org-publish-all t)
+(org-publish-project "org-site" t)
 
 (message "Build complete!")
 #+END_SRC

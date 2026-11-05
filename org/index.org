@@ -1,5 +1,13 @@
 #+title: Personal Web Site
 
-This is a _website_ built with [[https://orgmode.org][Org Mode]].
+#+HTML: <nav class="site-nav" aria-label="主导航">
+- [[file:posts/index.org][文章]]
+- [[file:categories/index.org][分类]]
+- [[file:about.org][关于]]
+#+HTML: </nav>
 
-[[file:posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
+* 最近文章
+
+- [[file:posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
+
+这是一个记录技术实践、工具使用和个人思考的网站。

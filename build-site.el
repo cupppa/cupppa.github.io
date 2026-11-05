@@ -24,9 +24,11 @@
 (setq org-html-validation-link nil            ;; Don't show validation link
       org-html-head-include-scripts nil       ;; Use our own scripts
       org-html-head-include-default-style nil ;; Use our own styles
-      org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+      org-html-head (concat
+                     "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />"
+                     "<link rel=\"stylesheet\" href=\"/assets/css/site.css\" />"))
 
-;; Define the publishing project
+;; Define the publishing projects
 (setq org-publish-project-alist
       (list
        (list "org-site:main"
@@ -38,9 +40,17 @@
              :with-creator t            ;; Include Emacs and Org versions in footer
              :with-toc nil              ;; Include a table of contents
              :section-numbers nil       ;; Don't include section numbers
-             :time-stamp-file nil)))    ;; Don't include time stamp in file
+             :time-stamp-file nil)      ;; Don't include time stamp in file
+       (list "org-site:assets"
+             :recursive t
+             :base-directory "./org/assets"
+             :publishing-directory "./public_html/assets"
+             :base-extension "css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|svg\\|webp\\|pdf"
+             :publishing-function 'org-publish-attachment)
+       (list "org-site"
+             :components '("org-site:main" "org-site:assets"))))
 
 ;; Generate the site output
-(org-publish-all t)
+(org-publish-project "org-site" t)
 
 (message "Build complete!")
