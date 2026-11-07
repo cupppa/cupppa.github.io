@@ -3,4 +3,5 @@
 
 * 全部文章
 
-- 2024-03-09 · [[file:2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
+- 2024-03-09 · [[file:2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]] \\
+  分类：[[file:../categories/tech.org][技术实践]] · 标签： =org-mode= · =emacs= · =website=
