@@ -2,6 +2,6 @@
   "private": true,
   "description": "CSS syntax checks for the Org site",
   "devDependencies": {
-    "postcss": "8.5.6"
+    "postcss": "8.5.23"
   }
 }
