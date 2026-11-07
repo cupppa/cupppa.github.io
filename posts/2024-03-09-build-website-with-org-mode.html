@@ -11,23 +11,20 @@
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" /><link rel="stylesheet" href="/assets/css/site.css" />
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">Build Website with Org Mode</h1>
-<nav class="site-nav" aria-label="主导航">
-<ul class="org-ul">
-<li><a href="../index.html">首页</a></li>
-<li><a href="index.html">文章</a></li>
-<li><a href="../categories/tech.html">技术实践</a></li>
-<li><a href="../about.html">关于</a></li>
-</ul>
-</nav>
-<div id="outline-container-orgd305148" class="outline-2">
-<h2 id="orgd305148">Version 2024-03-09 (Updated 2026-11-07)</h2>
-<div class="outline-text-2" id="text-orgd305148">
+<div id="preamble" class="status">
+<header class="site-header"><a class="site-brand" href="/">Cupppa Lab</a><nav class="site-nav" aria-label="主导航"><a href="/">首页</a><a href="/posts/index.html">文章</a><a href="/categories/index.html">分类</a><a href="/about.html">关于</a></nav></header>
 </div>
-<div id="outline-container-orge275e57" class="outline-3">
-<h3 id="orge275e57">参考</h3>
-<div class="outline-text-3" id="text-orge275e57">
+<div id="content" class="content">
+<div id="outline-container-org4690f36" class="outline-2">
+<h2 id="org4690f36">Build Website with Org Mode</h2>
+<div class="outline-text-2" id="text-org4690f36">
+<p>
+首次发布：2024-03-09 · 更新：2026-11-07
+</p>
+</div>
+<div id="outline-container-org0b3aaac" class="outline-3">
+<h3 id="org0b3aaac">参考</h3>
+<div class="outline-text-3" id="text-org0b3aaac">
 <ul class="org-ul">
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/">Build Your Website with Org Mode</a></li>
 <li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website Publishing with GitHub or SourceHut</a></li>
@@ -35,13 +32,13 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga635176" class="outline-3">
-<h3 id="orga635176">配置</h3>
-<div class="outline-text-3" id="text-orga635176">
+<div id="outline-container-org196644a" class="outline-3">
+<h3 id="org196644a">配置</h3>
+<div class="outline-text-3" id="text-org196644a">
 </div>
-<div id="outline-container-org3048591" class="outline-4">
-<h4 id="org3048591">build-site.el</h4>
-<div class="outline-text-4" id="text-org3048591">
+<div id="outline-container-org83e79e3" class="outline-4">
+<h4 id="org83e79e3">build-site.el</h4>
+<div class="outline-text-4" id="text-org83e79e3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Set the package installation directory so that packages aren't stored in the
 </span><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">~/.emacs.d/elpa path.
@@ -73,6 +70,18 @@
                      <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" /&gt;"</span>
                      <span style="font-style: italic;">"&lt;link rel=\"stylesheet\" href=\"/assets/css/site.css\" /&gt;"</span>))
 
+<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Shared header for every exported page; page titles remain in metadata.
+</span>(<span style="font-weight: bold;">setq</span> org-html-preamble
+      (concat
+       <span style="font-style: italic;">"&lt;header class=\"site-header\"&gt;"</span>
+       <span style="font-style: italic;">"&lt;a class=\"site-brand\" href=\"/\"&gt;Cupppa Lab&lt;/a&gt;"</span>
+       <span style="font-style: italic;">"&lt;nav class=\"site-nav\" aria-label=\"&#20027;&#23548;&#33322;\"&gt;"</span>
+       <span style="font-style: italic;">"&lt;a href=\"/\"&gt;&#39318;&#39029;&lt;/a&gt;"</span>
+       <span style="font-style: italic;">"&lt;a href=\"/posts/index.html\"&gt;&#25991;&#31456;&lt;/a&gt;"</span>
+       <span style="font-style: italic;">"&lt;a href=\"/categories/index.html\"&gt;&#20998;&#31867;&lt;/a&gt;"</span>
+       <span style="font-style: italic;">"&lt;a href=\"/about.html\"&gt;&#20851;&#20110;&lt;/a&gt;"</span>
+       <span style="font-style: italic;">"&lt;/nav&gt;&lt;/header&gt;"</span>))
+
 <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Define the publishing projects
 </span>(<span style="font-weight: bold;">setq</span> org-publish-project-alist
       (list
@@ -81,7 +90,8 @@
              <span style="font-weight: bold;">:base-directory</span> <span style="font-style: italic;">"./org"</span>
              <span style="font-weight: bold;">:publishing-directory</span> <span style="font-style: italic;">"./public_html"</span>
              <span style="font-weight: bold;">:publishing-function</span> 'org-html-publish-to-html
-             <span style="font-weight: bold;">:with-author</span> nil           <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include author name
+             <span style="font-weight: bold;">:with-title</span> nil            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Body headings identify the page
+</span>             <span style="font-weight: bold;">:with-author</span> nil           <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include author name
 </span>             <span style="font-weight: bold;">:with-creator</span> t            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include Emacs and Org versions in footer
 </span>             <span style="font-weight: bold;">:with-toc</span> nil              <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Include a table of contents
 </span>             <span style="font-weight: bold;">:section-numbers</span> nil       <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't include section numbers
@@ -103,9 +113,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org265445d" class="outline-4">
-<h4 id="org265445d">build.sh</h4>
-<div class="outline-text-4" id="text-org265445d">
+<div id="outline-container-orgc0769d0" class="outline-4">
+<h4 id="orgc0769d0">build.sh</h4>
+<div class="outline-text-4" id="text-orgc0769d0">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">sh</span><span style="font-weight: bold; font-style: italic;">
 </span>emacs -Q --script build-site.el
@@ -113,9 +123,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb91c32" class="outline-4">
-<h4 id="orgcb91c32">.github/workflows/publish.yml</h4>
-<div class="outline-text-4" id="text-orgcb91c32">
+<div id="outline-container-orgc2736a3" class="outline-4">
+<h4 id="orgc2736a3">.github/workflows/publish.yml</h4>
+<div class="outline-text-4" id="text-orgc2736a3">
 <div class="org-src-container">
 <pre class="src src-yaml">name: Publish to GitHub Pages
 
@@ -167,9 +177,9 @@ jobs:
 </div>
 </div>
 </div>
-<div id="outline-container-org1ad26a8" class="outline-4">
-<h4 id="org1ad26a8">发布前检查</h4>
-<div class="outline-text-4" id="text-org1ad26a8">
+<div id="outline-container-org50aac62" class="outline-4">
+<h4 id="org50aac62">发布前检查</h4>
+<div class="outline-text-4" id="text-org50aac62">
 <p>
 首次使用或检查依赖更新后运行 =npm ci=。构建后检查页面生成、静态资源复制以及 CSS 语法；失败时停止发布。
 </p>
