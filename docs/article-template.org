@@ -5,13 +5,7 @@
 #+category: tech
 #+filetags: :tag1:tag2:
 
-#+HTML: <nav class="site-nav" aria-label="主导航">
-- [[file:../index.org][首页]]
-- [[file:index.org][文章]]
-- [[file:../categories/tech.org][技术实践]]
-- [[file:../about.org][关于]]
-#+HTML: </nav>
 
-* 正文
+* 文章标题
 
 在这里开始写文章。

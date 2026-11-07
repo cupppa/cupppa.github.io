@@ -28,6 +28,18 @@
                      "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />"
                      "<link rel=\"stylesheet\" href=\"/assets/css/site.css\" />"))
 
+;; Shared header for every exported page; page titles remain in metadata.
+(setq org-html-preamble
+      (concat
+       "<header class=\"site-header\">"
+       "<a class=\"site-brand\" href=\"/\">Cupppa Lab</a>"
+       "<nav class=\"site-nav\" aria-label=\"主导航\">"
+       "<a href=\"/\">首页</a>"
+       "<a href=\"/posts/index.html\">文章</a>"
+       "<a href=\"/categories/index.html\">分类</a>"
+       "<a href=\"/about.html\">关于</a>"
+       "</nav></header>"))
+
 ;; Define the publishing projects
 (setq org-publish-project-alist
       (list
@@ -36,6 +48,7 @@
              :base-directory "./org"
              :publishing-directory "./public_html"
              :publishing-function 'org-html-publish-to-html
+             :with-title nil            ;; Body headings identify the page
              :with-author nil           ;; Don't include author name
              :with-creator t            ;; Include Emacs and Org versions in footer
              :with-toc nil              ;; Include a table of contents
