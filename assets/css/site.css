@@ -81,6 +81,33 @@
   font-size: 0.95rem;
 }
 
+/* Article metadata stays secondary; navigable links remain distinct. */
+p.article-meta {
+  color: var(--text-light, #585858);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+li > p:has(+ p.article-meta) {
+  margin-bottom: 0;
+}
+
+li > p.article-meta {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+p.article-meta a {
+  color: var(--accent, #0d47a1);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+p.article-meta code {
+  color: inherit;
+  font-size: 0.95em;
+}
+
 /* Org's generated publishing information acts as the page footer. */
 #postamble {
   clear: both;
