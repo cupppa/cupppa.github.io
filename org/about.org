@@ -8,6 +8,12 @@
 
 * 关于这个网站
 
-这里记录技术实践、工具使用和值得整理的思考。
+一盏实验室是一个记录技术实践、工具探索和个人思考的小型实验室。
+
+A personal lab for technical practice, tools, automation, and ideas.
+
+冲泡想法，动手试验，留下记录。
+
+Brew ideas. Test things. Keep notes.
 
 网站使用 Emacs Org Mode 生成 HTML，并通过 GitHub Actions 发布到 GitHub Pages。

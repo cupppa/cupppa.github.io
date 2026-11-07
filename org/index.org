@@ -1,4 +1,4 @@
-#+title: Personal Web Site
+#+title: Cupppa Lab
 
 #+HTML: <nav class="site-nav" aria-label="主导航">
 - [[file:posts/index.org][文章]]
@@ -6,8 +6,18 @@
 - [[file:about.org][关于]]
 #+HTML: </nav>
 
+#+HTML: <section class="site-intro" aria-label="网站介绍">
+一盏实验室
+
+冲泡想法，动手试验，留下记录。
+
+Brew ideas. Test things. Keep notes.
+
+一盏实验室是一个记录技术实践、工具探索和个人思考的小型实验室。
+
+A personal lab for technical practice, tools, automation, and ideas.
+#+HTML: </section>
+
 * 最近文章
 
-- [[file:posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
-
-这是一个记录技术实践、工具使用和个人思考的网站。
+- 2024-03-09 · [[file:posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]

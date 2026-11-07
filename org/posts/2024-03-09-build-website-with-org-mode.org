@@ -1,6 +1,6 @@
 #+title: Build Website with Org Mode
 #+date: 2024-03-09
-#+updated: 2026-11-05
+#+updated: 2026-11-07
 #+description: 使用 Emacs Org Mode 构建静态网站，并通过 GitHub Actions 发布。
 #+category: tech
 #+filetags: :org-mode:emacs:website:
@@ -11,7 +11,7 @@
 - [[file:../categories/tech.org][技术实践]]
 - [[file:../about.org][关于]]
 #+HTML: </nav>
-* Version 2024-03-09 (Updated 2026-11-05)
+* Version 2024-03-09 (Updated 2026-11-07)
 ** 参考
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/][Build Your Website with Org Mode]]
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/][Automated Org Mode Website Publishing with GitHub or SourceHut]]  
@@ -118,6 +118,9 @@ jobs:
       - name: Build the site
         run: ./build.sh
 
+      - name: Install CSS checker
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       - name: Check generated site
         run: ./scripts/check-site.sh
 
@@ -128,33 +131,14 @@ jobs:
           folder: public_html
 #+END_SRC
 
-*** scripts/check-site.sh
-发布前检查首页以及每个 Org 文件对应的 HTML 是否生成且非空，并检查 HTML 文件是否完整。构建或检查失败时，工作流不会继续发布。
+*** 发布前检查
+首次使用或检查依赖更新后运行 =npm ci=。构建后检查页面生成、静态资源复制以及 CSS 语法；失败时停止发布。
 
 #+BEGIN_SRC sh
-#!/bin/sh
-set -eu
-
-check_file() {
-  file="$1"
-  if [ ! -s "$file" ]; then
-    echo "Missing or empty generated file: $file" >&2
-    exit 1
-  fi
-}
-
-check_file public_html/index.html
-
-for source in $(find org -type f -name '*.org' -print); do
-  relative=${source#org/}
-  output="public_html/${relative%.org}.html"
-  check_file "$output"
-  if ! grep -q '</html>' "$output"; then
-    echo "Generated file is not complete HTML: $output" >&2
-    exit 1
-  fi
-done
-
-echo "Site checks passed."
+npm ci --ignore-scripts --no-audit --no-fund
+./build.sh
+./scripts/check-site.sh
 #+END_SRC
+
+检查实现以仓库中的 [[https://github.com/cupppa/cupppa.github.io/blob/master/scripts/check-site.sh][check-site.sh]] 和 [[https://github.com/cupppa/cupppa.github.io/blob/master/scripts/check-css.cjs][check-css.cjs]] 为准，不在正文重复维护完整脚本。
 

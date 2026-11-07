@@ -21,4 +21,18 @@ for source in $(find org -type f -name '*.org' -print); do
   fi
 done
 
+# Require the site's stylesheet and verify every published source asset.
+check_file public_html/assets/css/site.css
+find org/assets -type f -exec sh -c '
+  for source do
+    output="public_html/${source#org/}"
+    if [ ! -f "$output" ] || ! cmp -s "$source" "$output"; then
+      echo "Missing or stale generated asset: $output" >&2
+      exit 1
+    fi
+  done
+' sh {} +
+
+node scripts/check-css.cjs
+
 echo "Site checks passed."

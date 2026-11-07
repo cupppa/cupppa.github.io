@@ -1,3 +1,21 @@
-#+title: Web Site by Org Mode
+#+title: Cupppa Lab
 
-This repo is a website build and publish with [[https://orgmode.org][Org Mode]].
+一盏实验室
+
+冲泡想法，动手试验，留下记录。
+
+Brew ideas. Test things. Keep notes.
+
+Cupppa Lab 是一个记录技术实践、工具探索和个人思考的小型实验室。
+
+This repo builds and publishes Cupppa Lab with [[https://orgmode.org][Org Mode]].
+
+* 本地构建与检查
+
+需要 Emacs、Node.js 和 npm。首次使用或依赖更新后先安装 CSS 检查依赖：
+
+#+begin_src sh
+npm ci --ignore-scripts --no-audit --no-fund
+./build.sh
+./scripts/check-site.sh
+#+end_src
