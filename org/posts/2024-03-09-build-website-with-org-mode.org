@@ -7,7 +7,10 @@
 
 * Build Website with Org Mode
 
-首次发布：2024-03-09 · 更新：2026-11-07
+#+attr_html: :class article-meta
+首次发布：2024-03-09 · 更新：2026-11-07 \\
+分类：[[file:../categories/tech.org][技术实践]] · 标签： =org-mode= · =emacs= · =website=
+
 ** 参考
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/building-the-site/][Build Your Website with Org Mode]]
 - [[https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/][Automated Org Mode Website Publishing with GitHub or SourceHut]]  

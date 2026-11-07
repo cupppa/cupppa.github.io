@@ -3,5 +3,7 @@
 
 * 技术实践
 
-- 2024-03-09 · [[file:../posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]] \\
+- 2024-03-09 · [[file:../posts/2024-03-09-build-website-with-org-mode.org][Build Website with Org Mode]]
+
+  #+attr_html: :class article-meta
   标签： =org-mode= · =emacs= · =website=

@@ -8,4 +8,8 @@
 
 * 文章标题
 
+#+attr_html: :class article-meta
+首次发布：YYYY-MM-DD · 更新：YYYY-MM-DD \\
+分类：[[file:../categories/tech.org][技术实践]] · 标签： =tag1= · =tag2=
+
 在这里开始写文章。
